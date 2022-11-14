@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/anhbr1"
+    android:padding="8dp">
+
+    <ImageView
+        android:layout_width="266dp"
+        android:layout_height="114dp"
+        android:src="@drawable/logo_truong"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:text="Đăng Ký"
+        android:textColor="#f7941d"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botron_ed_dk"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Tên Shop"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_tenshop"
+        android:drawablePadding="10dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/botron_ed_dk"
+        android:drawableLeft="@drawable/ic_hovaten"
+        android:drawablePadding="10dp"
+        android:hint="Nhập Tài Khoản"
+        android:paddingLeft="10dp"
+        android:textColor="#000" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botron_ed_dk"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Nhập Mật Khẩu"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_mkk"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botron_ed_dk"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Nhập Lại Mật Khẩu"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_mkk"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botron_ed_dk"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:hint="Địa Chỉ"
+        android:textColor="#000"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_diachi"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botron_ed_dk"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="SĐT"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="10dp"
+        />
+
+    <Button
+        android:layout_width="141dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#f7941d"
+        android:textColor="@color/white"
+        android:text="Đăng Ký"
+        android:paddingLeft="10dp"/>
+
+</LinearLayout>
