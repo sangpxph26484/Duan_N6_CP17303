@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:background="@color/colorActionbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"
+            android:id="@+id/img_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thống Kế"
+            android:layout_weight="1"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ngaybatdau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/actionbar"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:backgroundTint="@color/colorbackgounditem"
+        app:layout_constraintRight_toLeftOf="@id/cv_ngaykethuc"
+        app:layout_constraintHorizontal_chainStyle="spread">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/tv_ngaybatdau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:text="ngày bắt đầu" />
+
+            <ImageView
+                android:id="@+id/img_ngaybatdau"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_date"
+                app:layout_constraintTop_toTopOf="@id/tv_ngaybatdau"
+                app:layout_constraintLeft_toRightOf="@id/tv_ngaybatdau"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_ngaykethuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorbackgounditem"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintLeft_toRightOf="@id/cv_ngaybatdau"
+        app:layout_constraintTop_toTopOf="@id/cv_ngaybatdau"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_ngayketthuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ngày kết thúc"
+                android:textColor="#000000"
+
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_ngaykethucchi"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_date"
+                app:layout_constraintLeft_toRightOf="@id/tv_ngayketthuc"
+                app:layout_constraintTop_toTopOf="@id/tv_ngayketthuc" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cv_ngaybatdau"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_slDonHang"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/btn_slDonHang"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#9DEC42"
+        android:text="Số Lượng Đơn Hàng"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_khoanthu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="20dp"/>
+
+    <Button
+        android:id="@+id/btn_khoanthu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#9DEC42"
+        android:text="Khoản thu"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn_slDonHang"
+        android:layout_margin="20dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
