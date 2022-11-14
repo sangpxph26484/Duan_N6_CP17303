@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/anhbr1"
+    >
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_truong" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng Nhập"
+        android:textSize="30dp"
+        android:textColor="#f7941d"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/botron_ed"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="UserName"
+        android:textSize="20dp"
+        android:textColor="#000"
+        android:paddingLeft="5dp"
+        android:drawableLeft="@drawable/ic_hovaten"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/botron_ed"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="PassWord"
+        android:textSize="20dp"
+        android:textColor="#000"
+        android:paddingLeft="5dp"
+        android:drawableLeft="@drawable/ic_mkk"
+        android:drawablePadding="10dp"
+        android:inputType="textPassword"
+        android:drawableRight="@drawable/ic_hienthipass"
+        android:paddingRight="10dp"
+
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Lưu Mật Khẩu"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="italic"
+        android:buttonTint="@color/white"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#f7941d"
+        android:text="Đăng Nhập"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/boten_btn"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="140dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="@string/quen_mk"
+            android:textColor="@color/white"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="35dp"
+            android:textStyle="italic"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="||"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:layout_gravity=""
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/dang_ky"
+            android:textSize="15dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -2,6 +2,7 @@
     <string name="app_name">Duan_N6_CP17303</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="quen_mk"><u>Quên Mật Khẩu ?</u></string>
+    <string name="dang_ky"><u>Chưa Đăng Ký ?</u></string>
 
 </resources>
