@@ -13,13 +13,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"
+            android:id="@+id/img_back"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Liên Hệ Và Đánh Giá"
             android:layout_weight="1"
-            android:layout_marginRight="15dp"
+            android:paddingRight="20dp"
             android:textStyle="bold"
             android:textSize="26sp"
             android:textColor="@color/black"
@@ -28,7 +33,7 @@
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutThem"
+        android:id="@+id/tabLayoutQLKH"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +47,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerThem"
+        android:id="@+id/viewPagerQLKH"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"

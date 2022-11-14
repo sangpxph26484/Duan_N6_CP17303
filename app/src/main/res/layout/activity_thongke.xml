@@ -116,7 +116,7 @@
     <Button
         android:id="@+id/btn_slDonHang"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="#9DEC42"
         android:text="Số Lượng Đơn Hàng"
         android:textAllCaps="false"
@@ -128,8 +128,8 @@
 
     <Button
         android:id="@+id/btn_khoanthu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:backgroundTint="#9DEC42"
         android:text="Khoản thu"
         android:textColor="@color/black"
