@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.DBHelper;
+package com.example.duan_n6_cp17303.DBHelper_N6_CP17303;
     import android.os.StrictMode;
     import android.util.Log;
     import java.sql.Connection;

@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.Fragment;
+package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
 import android.os.Bundle;
 
@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 import com.example.duan_n6_cp17303.R;
 
 
-public class FragmentSanpham extends Fragment {
+public class FragmentMenu extends Fragment {
 
-    public static FragmentSanpham newInstance() {
-        FragmentSanpham fragment = new FragmentSanpham();
+    public static FragmentMenu newInstance() {
+        FragmentMenu fragment = new FragmentMenu();
 
         return fragment;
     }
@@ -26,7 +26,7 @@ public class FragmentSanpham extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_sanpham, container, false);
+        return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 
     @Override

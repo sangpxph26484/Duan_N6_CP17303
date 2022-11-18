@@ -1,21 +1,19 @@
-package com.example.duan_n6_cp17303.Apdater;
+package com.example.duan_n6_cp17303.Apdater_N6_CP17303;
 
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.duan_n6_cp17303.Fragment.FragmentAll;
-import com.example.duan_n6_cp17303.Fragment.FragmentChuagiao;
-import com.example.duan_n6_cp17303.Fragment.FragmentDagiao;
-import com.example.duan_n6_cp17303.Fragment.FragmentDanhgia;
-import com.example.duan_n6_cp17303.Fragment.FragmentLienhe;
+import com.example.duan_n6_cp17303.Fragment_N6_CP17303.FragmentAll;
+import com.example.duan_n6_cp17303.Fragment_N6_CP17303.FragmentChuagiao;
+import com.example.duan_n6_cp17303.Fragment_N6_CP17303.FragmentDagiao;
 
 
-public class PagerAdapterThem extends FragmentStateAdapter {
+public class PagerAdapterQLKH extends FragmentStateAdapter {
 
     int soluongPage = 2;
-    public PagerAdapterThem(@NonNull Fragment fragment) {
+    public PagerAdapterQLKH(@NonNull Fragment fragment) {
         super(fragment);
     }
 

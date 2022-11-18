@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.Fragment;
+package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.duan_n6_cp17303.R;
 
-
-public class FragmentDanhgia extends Fragment {
+public class FragmentLienhe extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_lienhe,container,false);
+        View view = inflater.inflate(R.layout.fragment_danhgia,container,false);
 
         return view;
     }

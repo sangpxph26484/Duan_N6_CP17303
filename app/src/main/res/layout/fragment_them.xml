@@ -36,8 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/actionbar"
         android:background="@color/colorbackgounditem"
         app:tabTextColor="@color/black"
-        app:tabMode="fixed"
-        android:layout_margin="10dp">
+        app:tabMode="fixed">
 
     </com.google.android.material.tabs.TabLayout>
 
