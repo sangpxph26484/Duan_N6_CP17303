@@ -7,14 +7,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.duan_n6_cp17303.DAO.CuaHangDAO;
+import com.example.duan_n6_cp17303.DBHelper.MyDBHelper;
+import com.example.duan_n6_cp17303.DTO.CuaHangDTO;
 import com.example.duan_n6_cp17303.Fragment.FragmentDonhang;
 import com.example.duan_n6_cp17303.Fragment.FragmentMenu;
 import com.example.duan_n6_cp17303.Fragment.FragmentSanpham;
 import com.example.duan_n6_cp17303.Fragment.FragmentThem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.sql.Connection;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +31,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyDBHelper myDBHelper = new MyDBHelper();
+        Connection conn = myDBHelper.openConnect();
+
+        CuaHangDAO catDao = new CuaHangDAO();
+
+        // bước 9 thì không cần phần trên, dùng DAO để lấy dữ liệu
+
+        List<CuaHangDTO> listCat = catDao.getAll(); // lấy danh sách cho vào biến
+
+        // duyệt mảng in ra danh sách
+        for(int i = 0; i<listCat.size(); i++){
+            CuaHangDTO objCat = listCat.get(i);
+
+            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getTencuahang());
+
+        }
 
 
         fragmentManager = getSupportFragmentManager();
