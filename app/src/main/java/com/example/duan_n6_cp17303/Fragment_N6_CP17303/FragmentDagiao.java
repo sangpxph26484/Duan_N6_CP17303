@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.Fragment;
+package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
 import android.os.Bundle;
 

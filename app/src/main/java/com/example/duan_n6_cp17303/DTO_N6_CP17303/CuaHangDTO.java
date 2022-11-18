@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.DTO;
+package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 
 public class CuaHangDTO {
     String tencuahang;

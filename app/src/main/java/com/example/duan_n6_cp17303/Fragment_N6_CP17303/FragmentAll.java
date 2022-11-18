@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.Fragment;
+package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
 import android.os.Bundle;
 
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.duan_n6_cp17303.R;
 
 
-public class FragmentChuagiao extends Fragment {
+public class FragmentAll extends Fragment {
 
 
 
@@ -19,6 +19,6 @@ public class FragmentChuagiao extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chuagiao, container, false);
+        return inflater.inflate(R.layout.fragment_all, container, false);
     }
 }
