@@ -3,6 +3,7 @@ package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.CuaHangDTO;
 
 import java.sql.Connection;
@@ -12,20 +13,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CuaHangDAO {
+public class BinhLuanDAO {
     Connection objConn;
-    public CuaHangDAO(){
+    public BinhLuanDAO(){
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
-    public List<CuaHangDTO> getAll(){
-        List<CuaHangDTO> listCuaHang = new ArrayList<CuaHangDTO>();
+
+    public List<BinhLuanDTO> getAll(){
+        List<BinhLuanDTO> listCat = new ArrayList<BinhLuanDTO>();
 
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT * FROM CUAHANG ";
+                String sqlQuery = "SELECT * FROM BINHLUAN ";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -33,16 +35,11 @@ public class CuaHangDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    CuaHangDTO cuaHangDTO = new CuaHangDTO();
-                    cuaHangDTO.setTencuahang(resultSet.getString("TENCUAHANG"));
-                    cuaHangDTO.setDiachi(resultSet.getString("DIACHI"));
-                    cuaHangDTO.setPhone(resultSet.getString("PHONE"));
-                    cuaHangDTO.setIdsanpham(resultSet.getInt("IDSANPHAM"));
-                    cuaHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
-                    cuaHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    cuaHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
+                    BinhLuanDTO objCat = new BinhLuanDTO();
+                    objCat.setIdbinhluan(resultSet.getInt("ID"));
+                    objCat.setBinhluan(resultSet.getString("BINHLUAN"));
 
-                    listCuaHang.add(cuaHangDTO);
+                    listCat.add(objCat);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
@@ -53,14 +50,14 @@ public class CuaHangDAO {
             e.printStackTrace();
         }
 
-        return  listCuaHang;
+        return  listCat;
     }
-    public void insertRow (CuaHangDTO cuaHangDTO){
+    public void insertRow (BinhLuanDTO binhLuanDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'"+cuaHangDTO.getDiachi()+"','"+cuaHangDTO.getPhone()+"')";
+                String insertSQL = "INSERT INTO BINHLUAN(BINHLUAN) VALUES (N'" + binhLuanDTO.getBinhluan() +"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -84,12 +81,12 @@ public class CuaHangDAO {
         }
     }
 
-    public void updateRow(CuaHangDTO cuaHangDTO){
+    public void updateRow(BinhLuanDTO binhLuanDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE CUAHANG SET name= N'" + cuaHangDTO.getTencuahang()+"',N'"+ cuaHangDTO.getDiachi()+"','"+ cuaHangDTO.getPhone()+ "'WHERE id = " + cuaHangDTO.getId();
+                String sqlUpdate = "UPDATE BINHLUAN SET name= N'" + binhLuanDTO.getBinhluan()+ "'WHERE id = " + binhLuanDTO.getIdbinhluan();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);

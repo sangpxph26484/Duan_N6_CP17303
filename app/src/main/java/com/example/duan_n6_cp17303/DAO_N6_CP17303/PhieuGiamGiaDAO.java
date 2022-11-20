@@ -3,7 +3,8 @@ package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
-import com.example.duan_n6_cp17303.DTO_N6_CP17303.CuaHangDTO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.PhieuGiamGiaDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,20 +13,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CuaHangDAO {
+public class PhieuGiamGiaDAO {
     Connection objConn;
-    public CuaHangDAO(){
+    public PhieuGiamGiaDAO(){
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
-    public List<CuaHangDTO> getAll(){
-        List<CuaHangDTO> listCuaHang = new ArrayList<CuaHangDTO>();
+
+    public List<PhieuGiamGiaDTO> getAll(){
+        List<PhieuGiamGiaDTO> listCat = new ArrayList<PhieuGiamGiaDTO>();
 
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT * FROM CUAHANG ";
+                String sqlQuery = "SELECT * FROM PHIEUGIAMGIA ";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -33,16 +35,14 @@ public class CuaHangDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    CuaHangDTO cuaHangDTO = new CuaHangDTO();
-                    cuaHangDTO.setTencuahang(resultSet.getString("TENCUAHANG"));
-                    cuaHangDTO.setDiachi(resultSet.getString("DIACHI"));
-                    cuaHangDTO.setPhone(resultSet.getString("PHONE"));
-                    cuaHangDTO.setIdsanpham(resultSet.getInt("IDSANPHAM"));
-                    cuaHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
-                    cuaHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    cuaHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
+                    PhieuGiamGiaDTO objCat = new PhieuGiamGiaDTO();
+                    objCat.setIdphieugiamgia(resultSet.getInt("ID"));
+                    objCat.setMagiamgia(resultSet.getString("MAGIAMGIA"));
+                    objCat.setPhantram(resultSet.getString("PHANTRAM"));
 
-                    listCuaHang.add(cuaHangDTO);
+
+
+                    listCat.add(objCat);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
@@ -53,14 +53,14 @@ public class CuaHangDAO {
             e.printStackTrace();
         }
 
-        return  listCuaHang;
+        return  listCat;
     }
-    public void insertRow (CuaHangDTO cuaHangDTO){
+    public void insertRow (PhieuGiamGiaDTO phieuGiamGiaDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'"+cuaHangDTO.getDiachi()+"','"+cuaHangDTO.getPhone()+"')";
+                String insertSQL = "INSERT INTO PHIEUGIAMGIA(MAGIAMGIA,PHANTRAM) VALUES (N'" + phieuGiamGiaDTO.getMagiamgia() +"','"+phieuGiamGiaDTO.getPhantram()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -84,12 +84,12 @@ public class CuaHangDAO {
         }
     }
 
-    public void updateRow(CuaHangDTO cuaHangDTO){
+    public void updateRow(PhieuGiamGiaDTO phieuGiamGiaDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE CUAHANG SET name= N'" + cuaHangDTO.getTencuahang()+"',N'"+ cuaHangDTO.getDiachi()+"','"+ cuaHangDTO.getPhone()+ "'WHERE id = " + cuaHangDTO.getId();
+                String sqlUpdate = "UPDATE PHIEUGIAMGIA SET name= " + phieuGiamGiaDTO.getMagiamgia()+"','"+ phieuGiamGiaDTO.getPhantram() + "'WHERE id = " + phieuGiamGiaDTO.getPhantram();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);

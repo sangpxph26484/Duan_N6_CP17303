@@ -2,13 +2,31 @@ package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 
 public class CuaHangDTO {
     int id;
-    String tenkhachhang;
+    String tencuahang;
     String phone;
-    String email;
+
     String diachi;
-    int idhoadon;
+    int idkhachhang;
     int idphieugiamgia;
     int idlienhe;
+    int idsanpham;
+
+
+    public int getIdkhachhang() {
+        return idkhachhang;
+    }
+
+    public void setIdkhachhang(int idkhachhang) {
+        this.idkhachhang = idkhachhang;
+    }
+
+    public int getIdsanpham() {
+        return idsanpham;
+    }
+
+    public void setIdsanpham(int idsanpham) {
+        this.idsanpham = idsanpham;
+    }
 
     public int getId() {
         return id;
@@ -18,12 +36,12 @@ public class CuaHangDTO {
         this.id = id;
     }
 
-    public String getTenkhachhang() {
-        return tenkhachhang;
+    public String getTencuahang() {
+        return tencuahang;
     }
 
-    public void setTenkhachhang(String tenkhachhang) {
-        this.tenkhachhang = tenkhachhang;
+    public void setTencuahang(String tencuahang) {
+        this.tencuahang = tencuahang;
     }
 
     public String getPhone() {
@@ -34,13 +52,7 @@ public class CuaHangDTO {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getDiachi() {
         return diachi;
@@ -50,13 +62,6 @@ public class CuaHangDTO {
         this.diachi = diachi;
     }
 
-    public int getIdhoadon() {
-        return idhoadon;
-    }
-
-    public void setIdhoadon(int idhoadon) {
-        this.idhoadon = idhoadon;
-    }
 
     public int getIdphieugiamgia() {
         return idphieugiamgia;
