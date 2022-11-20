@@ -37,6 +37,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/voucher_lv_voucher"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,5 +53,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/ic_add"
+        android:id="@+id/voucher_fab_themvoucher"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

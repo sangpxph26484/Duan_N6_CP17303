@@ -1,7 +1,7 @@
 package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 
-public class CuaHangDTO {
-    int id;
+public class KhachHangDTO {
+    int idkhachhang;
     String tenkhachhang;
     String phone;
     String email;
@@ -10,12 +10,12 @@ public class CuaHangDTO {
     int idphieugiamgia;
     int idlienhe;
 
-    public int getId() {
-        return id;
+    public int getIdkhachhang() {
+        return idkhachhang;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdkhachhang(int idkhachhang) {
+        this.idkhachhang = idkhachhang;
     }
 
     public String getTenkhachhang() {
@@ -74,6 +74,6 @@ public class CuaHangDTO {
         this.idlienhe = idlienhe;
     }
 
-    public CuaHangDTO() {
+    public KhachHangDTO() {
     }
 }
