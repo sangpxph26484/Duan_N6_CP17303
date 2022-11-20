@@ -22,6 +22,7 @@
         android:layout_marginTop="20dp"
         />
     <EditText
+        android:id="@+id/dangky_ed_ten"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -36,6 +37,7 @@
         />
 
     <EditText
+        android:id="@+id/dangky_ed_taikhoan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="30dp"
@@ -49,6 +51,7 @@
         android:textColor="#000" />
 
     <EditText
+        android:id="@+id/dangky_ed_matkhau"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -62,6 +65,7 @@
         android:drawablePadding="10dp"
         />
     <EditText
+        android:id="@+id/dangky_ed_nhaplaimatkhau"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -75,6 +79,7 @@
         android:drawablePadding="10dp"
         />
     <EditText
+        android:id="@+id/dangky_ed_diachi"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -88,6 +93,7 @@
         android:drawablePadding="10dp"
         />
     <EditText
+        android:id="@+id/dangky_ed_sdt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -102,6 +108,7 @@
         />
 
     <Button
+        android:id="@+id/dangky_btn_dangky"
         android:layout_width="141dp"
         android:layout_height="59dp"
         android:layout_gravity="center"

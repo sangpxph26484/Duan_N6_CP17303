@@ -30,17 +30,11 @@
             android:padding="8dp"
             android:gravity="center"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ic_chuong2"
-        android:layout_gravity="right"
-        />
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:background="@drawable/botron_linner"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:layout_gravity="center"
         android:orientation="vertical"
         >
@@ -60,6 +54,7 @@
                 />
 
             <TextView
+                android:id="@+id/trangchu_tv_xemchitiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xem Chi Tiết >>"
@@ -76,6 +71,7 @@
 
             >
             <TextView
+                android:id="@+id/trangchu_tv_doanhthu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="23dp"
@@ -116,6 +112,7 @@
                     android:textStyle="bold"
 
                     />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -134,6 +131,7 @@
                 android:paddingLeft="40dp"
                 >
                 <TextView
+                    android:id="@+id/trangchu_tv_donhangmoi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -144,6 +142,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/trangchu_tv_donhuy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -154,6 +153,7 @@
                     android:paddingLeft="20dp"
                     />
                 <TextView
+                    android:id="@+id/trangchu_tv_dontra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -180,6 +180,7 @@
             >
 
             <ImageView
+                android:id="@+id/trangchu_img_themsanpham"
                 android:layout_width="91dp"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_add_them"
@@ -201,6 +202,7 @@
             >
 
             <ImageView
+                android:id="@+id/trangchu_img_voucher"
                 android:layout_width="91dp"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_vou"
@@ -222,9 +224,10 @@
             >
 
             <ImageView
+                android:id="@+id/trangchu_img_info"
                 android:layout_width="91dp"
                 android:layout_height="100dp"
-                android:src="@drawable/daukhac"
+                android:src="@drawable/ic_hovaten"
                 />
             <TextView
                 android:layout_width="91dp"
