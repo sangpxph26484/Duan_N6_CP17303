@@ -38,8 +38,8 @@ public class SanPhamDAO {
                     SanPhamDTO objCat = new SanPhamDTO();
                     objCat.setIdsanpham(resultSet.getInt("ID"));
                     objCat.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    objCat.setGiatien(resultSet.getString("GIATIEN"));
-                    objCat.setSoluong(resultSet.getString("SOLUONG"));
+                    objCat.setGiatien(resultSet.getFloat("GIATIEN"));
+                    objCat.setSoluong(resultSet.getInt("SOLUONG"));
                     objCat.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
                     objCat.setThongtin(resultSet.getString("THONGTIN"));
                     objCat.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));

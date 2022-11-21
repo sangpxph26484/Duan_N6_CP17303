@@ -3,8 +3,8 @@ package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 public class SanPhamDTO {
     int idsanpham;
     String tensanpham;
-    String giatien;
-    String soluong;
+    float giatien;
+    int soluong;
     String anhsanpham;
     String thongtin;
     int idbinhluan;
@@ -25,19 +25,19 @@ public class SanPhamDTO {
         this.tensanpham = tensanpham;
     }
 
-    public String getGiatien() {
+    public float getGiatien() {
         return giatien;
     }
 
-    public void setGiatien(String giatien) {
+    public void setGiatien(float giatien) {
         this.giatien = giatien;
     }
 
-    public String getSoluong() {
+    public int getSoluong() {
         return soluong;
     }
 
-    public void setSoluong(String soluong) {
+    public void setSoluong(int soluong) {
         this.soluong = soluong;
     }
 

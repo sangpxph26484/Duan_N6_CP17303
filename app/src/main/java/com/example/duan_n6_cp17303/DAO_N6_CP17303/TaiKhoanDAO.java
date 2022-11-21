@@ -1,5 +1,6 @@
 package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 
+import android.database.Cursor;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
@@ -37,7 +38,7 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO objCat = new TaiKhoanDTO();
                     objCat.setIdtaikhoan(resultSet.getInt("ID"));
-                    objCat.setUsername(resultSet.getString("USERNAME"));
+                    objCat.setUsername(resultSet.getString("USENAME"));
                     objCat.setPassword(resultSet.getString("PASS"));
                     objCat.setAvatar(resultSet.getString("AVATAR"));
                     objCat.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
@@ -63,7 +64,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO TAIKHOAN(USERNAME,PASS,AVARTAR) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPassword() +"','"+taiKhoanDTO.getAvatar() +"')";
+                String insertSQL = "INSERT INTO TAIKHOAN(USENAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPassword()  +"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -92,7 +93,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername()+"','"+ taiKhoanDTO.getPassword()+"','"+ taiKhoanDTO.getAvatar() + "'WHERE id = " + taiKhoanDTO.getIdtaikhoan();
+                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername()+"','"+ taiKhoanDTO.getPassword() + "'WHERE id = " + taiKhoanDTO.getIdtaikhoan();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -109,4 +110,19 @@ public class TaiKhoanDAO {
             e.printStackTrace();
         }
     }
+//    public boolean checkuser(String username){
+//        Cursor cursor = db.rawQuery("Select * from tb_user where username = ?",new String[]{username});
+//        if(cursor.getCount()>0){
+//            return true;
+//        }else
+//            return  false;
+//    }
+//
+//    public boolean checkuserpass(String username,String password){
+//        Cursor cursor = db.rawQuery("Select * from tb_user where username = ? and password = ?",new String[]{username,password});
+//        if (cursor.getCount()>0){
+//            return true;
+//        }else
+//            return  false;
+//    }
 }

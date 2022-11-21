@@ -38,22 +38,13 @@ public class MainActivity extends AppCompatActivity {
         CuaHangDAO catDao = new CuaHangDAO();
 
         // bước 9 thì không cần phần trên, dùng DAO để lấy dữ liệu
-        String tencuahang = "Chương đẹp trai1";
-        String diachi = "Đẹp trai1";
-        String phone = "0986756541";
-
-
+//        String tencuahang = "Chương đẹp trai1";
+//        String diachi = "Đẹp trai1";
+//        String phone = "0986756541";
+//
+//
         CuaHangDTO cuaHangDTO = new CuaHangDTO();
 
-
-
-        cuaHangDTO.setPhone(phone);
-        cuaHangDTO.setDiachi(diachi);
-        cuaHangDTO.setTencuahang(tencuahang);
-
-
-
-        catDao.insertRow(cuaHangDTO);
 
         // duyệt mảng in ra danh sách
         List<CuaHangDTO> listCat = catDao.getAll(); // lấy danh sách cho vào biến

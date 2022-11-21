@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_background"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:text="Thêm Sản Phẩm"
+        android:textColor="#032522"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/themsp_ed_tensp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Tên Sản Phẩm"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/themsp_ed_giatien"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:drawablePadding="10dp"
+        android:hint="Giá Tiền"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/themsp_ed_soluong"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Số Lượng"
+        android:paddingLeft="10dp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/themsp_ed_thongtin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:hint="Thông Tin"
+        android:paddingLeft="10dp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/themsp_ed_anh"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:hint="Ảnh"
+        android:textColor="#000"
+        android:paddingLeft="10dp"
+        android:textStyle="bold"
+        android:drawablePadding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/themsp_btn_dangky"
+            android:layout_width="141dp"
+            android:layout_height="59dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#4AC3FA"
+            android:textColor="@color/black"
+            android:text="Thêm"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/themsp_btn_huy"
+            android:layout_width="141dp"
+            android:layout_height="59dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#4AC3FA"
+            android:textColor="@color/black"
+            android:text="Hủy"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
