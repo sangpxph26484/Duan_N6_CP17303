@@ -35,14 +35,14 @@ public class HoaDonDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    HoaDonDTO objCat = new HoaDonDTO();
-                    objCat.setIdhoadon(resultSet.getInt("ID"));
-                    objCat.setIdcthd(resultSet.getInt("IDCTHD"));
-                    objCat.setNgaymua(resultSet.getString("NGAYMUA"));
-                    objCat.setTrangthai(resultSet.getString("TRANGTHAI"));
+                    HoaDonDTO hoaDonDTO = new HoaDonDTO();
+                    hoaDonDTO.setIdhoadon(resultSet.getInt("ID"));
+                    hoaDonDTO.setIdcthd(resultSet.getInt("IDCTHD"));
+                    hoaDonDTO.setNgaymua(resultSet.getString("NGAYMUA"));
+                    hoaDonDTO.setTrangthai(resultSet.getString("TRANGTHAI"));
 
 
-                    listCat.add(objCat);
+                    listCat.add(hoaDonDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

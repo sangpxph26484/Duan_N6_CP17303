@@ -35,18 +35,18 @@ public class KhachHangDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    KhachHangDTO objCat = new KhachHangDTO();
-                    objCat.setIdkhachhang(resultSet.getInt("ID"));
-                    objCat.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
-                    objCat.setPhone(resultSet.getString("PHONE"));
-                    objCat.setEmail(resultSet.getString("EMAIL"));
-                    objCat.setDiachi(resultSet.getString("DIACHI"));
-                    objCat.setIdhoadon(resultSet.getInt("IDHOADON"));
-                    objCat.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
-                    objCat.setIdlienhe(resultSet.getInt("IDLIENHE"));
+                    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                    khachHangDTO.setIdkhachhang(resultSet.getInt("ID"));
+                    khachHangDTO.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+                    khachHangDTO.setPhone(resultSet.getString("PHONE"));
+                    khachHangDTO.setEmail(resultSet.getString("EMAIL"));
+                    khachHangDTO.setDiachi(resultSet.getString("DIACHI"));
+                    khachHangDTO.setIdhoadon(resultSet.getInt("IDHOADON"));
+                    khachHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
+                    khachHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
 
 
-                    listCat.add(objCat);
+                    listCat.add(khachHangDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

@@ -4,6 +4,7 @@ public class BinhLuanDTO {
     int idbinhluan;
     String binhluan;
 
+
     public int getIdbinhluan() {
         return idbinhluan;
     }

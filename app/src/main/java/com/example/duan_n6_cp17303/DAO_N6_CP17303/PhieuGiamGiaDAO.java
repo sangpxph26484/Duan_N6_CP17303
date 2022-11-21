@@ -35,14 +35,14 @@ public class PhieuGiamGiaDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    PhieuGiamGiaDTO objCat = new PhieuGiamGiaDTO();
-                    objCat.setIdphieugiamgia(resultSet.getInt("ID"));
-                    objCat.setMagiamgia(resultSet.getString("MAGIAMGIA"));
-                    objCat.setPhantram(resultSet.getString("PHANTRAM"));
+                    PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaDTO();
+                    phieuGiamGiaDTO.setIdphieugiamgia(resultSet.getInt("ID"));
+                    phieuGiamGiaDTO.setMagiamgia(resultSet.getString("MAGIAMGIA"));
+                    phieuGiamGiaDTO.setPhantram(resultSet.getString("PHANTRAM"));
 
 
 
-                    listCat.add(objCat);
+                    listCat.add(phieuGiamGiaDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

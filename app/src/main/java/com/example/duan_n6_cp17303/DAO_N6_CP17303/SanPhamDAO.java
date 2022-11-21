@@ -35,18 +35,18 @@ public class SanPhamDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    SanPhamDTO objCat = new SanPhamDTO();
-                    objCat.setIdsanpham(resultSet.getInt("ID"));
-                    objCat.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    objCat.setGiatien(resultSet.getFloat("GIATIEN"));
-                    objCat.setSoluong(resultSet.getInt("SOLUONG"));
-                    objCat.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
-                    objCat.setThongtin(resultSet.getString("THONGTIN"));
-                    objCat.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
+                    SanPhamDTO sanPhamDTO = new SanPhamDTO();
+                    sanPhamDTO.setIdsanpham(resultSet.getInt("ID"));
+                    sanPhamDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    sanPhamDTO.setGiatien(resultSet.getFloat("GIATIEN"));
+                    sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
+                    sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+                    sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
+                    sanPhamDTO.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
 
 
 
-                    listCat.add(objCat);
+                    listCat.add(sanPhamDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

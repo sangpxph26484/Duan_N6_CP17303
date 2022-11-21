@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#B7E1E6"
+    android:background="@drawable/brchim"
     >
     <LinearLayout
         android:id="@+id/actionbar"
@@ -183,8 +183,8 @@
                 android:id="@+id/trangchu_img_themsanpham"
                 android:layout_width="91dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_add_them"
-                />
+                android:src="@drawable/ic_add" />
+
             <TextView
                 android:layout_width="91dp"
                 android:layout_height="wrap_content"
