@@ -35,16 +35,16 @@ public class CTHDDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    CTHDDTO objCat = new CTHDDTO();
-                    objCat.setIdcthd(resultSet.getInt("ID"));
-                    objCat.setIdsanpham(resultSet.getInt("IDSANPHAM"));
-                    objCat.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
-                    objCat.setSoluong(resultSet.getString("SOLUONG"));
-                    objCat.setTongtien(resultSet.getString("TONGTIEN"));
+                    CTHDDTO cthddto = new CTHDDTO();
+                    cthddto.setIdcthd(resultSet.getInt("ID"));
+                    cthddto.setIdsanpham(resultSet.getInt("IDSANPHAM"));
+                    cthddto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+                    cthddto.setSoluong(resultSet.getString("SOLUONG"));
+                    cthddto.setTongtien(resultSet.getString("TONGTIEN"));
 
 
 
-                    listCat.add(objCat);
+                    listCat.add(cthddto);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

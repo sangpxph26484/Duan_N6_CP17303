@@ -1,4 +1,4 @@
-package com.example.duan_n6_cp17303.Apdater_N6_CP17303;
+package com.example.duan_n6_cp17303.Adapter_N6_CP17303;
 
 
 import androidx.annotation.NonNull;

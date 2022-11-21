@@ -36,17 +36,17 @@ public class TaiKhoanDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    TaiKhoanDTO objCat = new TaiKhoanDTO();
-                    objCat.setIdtaikhoan(resultSet.getInt("ID"));
-                    objCat.setUsername(resultSet.getString("USENAME"));
-                    objCat.setPassword(resultSet.getString("PASS"));
-                    objCat.setAvatar(resultSet.getString("AVATAR"));
-                    objCat.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    objCat.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+                    taiKhoanDTO.setIdtaikhoan(resultSet.getInt("ID"));
+                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));
+                    taiKhoanDTO.setPassword(resultSet.getString("PASS"));
+                    taiKhoanDTO.setAvatar(resultSet.getString("AVATAR"));
+                    taiKhoanDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
+                    taiKhoanDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
 
 
 
-                    listCat.add(objCat);
+                    listCat.add(taiKhoanDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

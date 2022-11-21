@@ -35,13 +35,13 @@ public class LienHeDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    LienHeDTO objCat = new LienHeDTO();
-                    objCat.setIdlienhe(resultSet.getInt("ID"));
-                    objCat.setLienhe(resultSet.getString("LIENHE"));
+                    LienHeDTO lienHeDTO = new LienHeDTO();
+                    lienHeDTO.setIdlienhe(resultSet.getInt("ID"));
+                    lienHeDTO.setLienhe(resultSet.getString("LIENHE"));
 
 
 
-                    listCat.add(objCat);
+                    listCat.add(lienHeDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

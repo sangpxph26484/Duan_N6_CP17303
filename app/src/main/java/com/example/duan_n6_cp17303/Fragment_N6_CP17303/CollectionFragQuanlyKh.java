@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.duan_n6_cp17303.Apdater_N6_CP17303.PagerAdapterQLKH;
+import com.example.duan_n6_cp17303.Adapter_N6_CP17303.PagerAdapterQLKH;
 import com.example.duan_n6_cp17303.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
