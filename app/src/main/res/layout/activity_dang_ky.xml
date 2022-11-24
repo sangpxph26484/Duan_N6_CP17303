@@ -63,6 +63,7 @@
         android:paddingLeft="10dp"
         android:drawableLeft="@drawable/ic_mkk"
         android:drawablePadding="10dp"
+        android:inputType="textPassword"
         />
     <EditText
         android:id="@+id/dangky_ed_nhaplaimatkhau"
@@ -77,6 +78,7 @@
         android:paddingLeft="10dp"
         android:drawableLeft="@drawable/ic_mkk"
         android:drawablePadding="10dp"
+        android:inputType="textPassword"
         />
     <EditText
         android:id="@+id/dangky_ed_diachi"
