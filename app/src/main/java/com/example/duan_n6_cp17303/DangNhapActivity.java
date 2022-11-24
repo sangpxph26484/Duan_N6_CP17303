@@ -14,6 +14,7 @@ import com.example.duan_n6_cp17303.DAO_N6_CP17303.TaiKhoanDAO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 
 public class DangNhapActivity extends AppCompatActivity {
+    String a;
     EditText ed_user,ed_pass;
     CheckBox cbo_luumk;
     Button btn_dangnhap;
