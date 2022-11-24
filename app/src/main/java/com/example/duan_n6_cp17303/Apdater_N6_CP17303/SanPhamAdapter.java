@@ -61,10 +61,10 @@ public class SanPhamAdapter extends BaseAdapter {
         SanPhamDTO sanPhamDTO = list.get(position);
 
 
-        tv_tensp.setText(sanPhamDTO.getTensanpham()+"");
-        tv_gia.setText(sanPhamDTO.getGiatien()+"");
-        tv_thongtin.setText(sanPhamDTO.getThongtin());
-        tv_soluong.setText(sanPhamDTO.getSoluong()+"");
+        tv_tensp.setText("Tên Sản Phẩm: "+sanPhamDTO.getTensanpham()+"");
+        tv_gia.setText("Giá: "+sanPhamDTO.getGiatien()+"");
+        tv_thongtin.setText("Thông Tin: "+sanPhamDTO.getThongtin());
+        tv_soluong.setText("Số Lượng: "+sanPhamDTO.getSoluong()+"");
         Glide.with(view.getContext()).load(Uri.parse(sanPhamDTO.getAnhsanpham())).into(img_sp);
 
         return view;
