@@ -82,5 +82,6 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:dividerHeight="14.0sp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        />
 </LinearLayout>

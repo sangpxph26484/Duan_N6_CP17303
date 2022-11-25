@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -70,7 +71,6 @@ public class SanPhamDAO {
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
-
                 Log.d("zzzzz", "insertRow: finish insert");
                 // lấy ra ID cột tự động tăng
                 ResultSet rs = stmtInsert.getGeneratedKeys();
@@ -93,10 +93,10 @@ public class SanPhamDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE SANPHAM SET name= N'" + sanPhamDTO.getTensanpham()+"','"+ sanPhamDTO.getGiatien()+"','"+ sanPhamDTO.getSoluong()+"','"+ sanPhamDTO.getAnhsanpham()+"','"+ sanPhamDTO.getThongtin() + "'WHERE id = " + sanPhamDTO.getIdsanpham();
-
+                String sqlUpdate = "UPDATE SANPHAM SET TENSANPHAM = N'" + sanPhamDTO.getTensanpham()+"',GIATIEN ="+ sanPhamDTO.getGiatien()+",SOLUONG="+ sanPhamDTO.getSoluong()+",ANHSANPHAM='"+ sanPhamDTO.getAnhsanpham()+"',THONGTIN=N'"+ sanPhamDTO.getThongtin() + "'WHERE id = " + sanPhamDTO.getIdsanpham();
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+
                 stmt.execute(); // thực thi câu lệnh SQL
 
                 Log.d("zzzzz", "updateRow: finish Update");
@@ -110,4 +110,25 @@ public class SanPhamDAO {
             e.printStackTrace();
         }
     }
+    public void deleteRow(SanPhamDTO sanPhamDTO){
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "DELETE FROM SANPHAM WHERE id = " + sanPhamDTO.getIdsanpham();
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Delete");
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
+            e.printStackTrace();
+        }
+    }
+
 }

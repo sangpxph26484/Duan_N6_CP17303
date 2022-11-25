@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.TaiKhoanDAO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
@@ -35,6 +36,13 @@ public class DangNhapActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+                if (ed_user.getText().toString().equals("admin") && ed_pass.getText().toString().equals("admin")){
+                    Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangNhapActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thất Bại", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
