@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 
 import android.widget.EditText;
@@ -40,7 +39,6 @@ public class FragmentSanpham extends Fragment {
     SanPhamAdapter adapter;
     ListView lv;
     List<SanPhamDTO> list;
-
     public static FragmentSanpham newInstance() {
         FragmentSanpham fragment = new FragmentSanpham();
 
@@ -56,6 +54,9 @@ public class FragmentSanpham extends Fragment {
         lv = view.findViewById(R.id.sanpham_lv_donHang);
 
 
+
+
+
         return view;
     }
 
@@ -68,89 +69,11 @@ public class FragmentSanpham extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogAdd(view.getContext());
+            showDialogAdd(view.getContext());
 
             }
         });
         loaddata();
-
-
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.setContentView(R.layout.dialog_sua_sanpham);
-
-                EditText tensp = dialog.findViewById(R.id.suasp_ed_tensp);
-                EditText soluong = dialog.findViewById(R.id.suasp_ed_soluong);
-                EditText thongtin = dialog.findViewById(R.id.suasp_ed_thongtin);
-                EditText giatien = dialog.findViewById(R.id.suasp_ed_giatien);
-                EditText img = dialog.findViewById(R.id.suasp_ed_anh);
-
-
-                Button them = dialog.findViewById(R.id.suasp_btn_dangky);
-                Button huy = dialog.findViewById(R.id.suasp_btn_huy);
-                Button xoa = dialog.findViewById(R.id.suasp_btn_xoa);
-                SanPhamDTO sanPhamDTO1 = list.get(position);
-
-                tensp.setText(sanPhamDTO1.getTensanpham());
-                soluong.setText(String.valueOf(sanPhamDTO1.getSoluong()));
-                thongtin.setText(sanPhamDTO1.getThongtin());
-                giatien.setText(String.valueOf(sanPhamDTO1.getGiatien()));
-                img.setText(sanPhamDTO1.getAnhsanpham());
-
-                them.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String tsp = tensp.getText().toString();
-                        String tt = thongtin.getText().toString();
-                        String gt = giatien.getText().toString();
-                        String sl = soluong.getText().toString();
-
-                        sanPhamDTO1.setTensanpham(String.valueOf(tsp));
-                        sanPhamDTO1.setGiatien(Float.parseFloat(gt));
-                        sanPhamDTO1.setSoluong(Integer.parseInt(sl));
-                        sanPhamDTO1.setAnhsanpham(img.getText().toString());
-                        sanPhamDTO1.setThongtin(tt);
-
-                        try {
-                            sanPhamDAO.updateRow(sanPhamDTO1);
-                            Toast.makeText(getContext(), "Sửa Thành Công", Toast.LENGTH_SHORT).show();
-                            loaddata();
-                            dialog.dismiss();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            dialog.dismiss();
-                        }
-
-                    }
-                });
-                xoa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        try {
-                            sanPhamDAO.deleteRow(list.get(position));
-                            Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
-                            loaddata();
-                            dialog.dismiss();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            dialog.dismiss();
-                        }
-                    }
-                });
-
-                huy.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
-                return  false;
-            }
-
-        });
 
     }
     public  void loaddata(){
@@ -161,6 +84,8 @@ public class FragmentSanpham extends Fragment {
         adapter.notifyDataSetChanged();
 
     }
+
+
     public void showDialogAdd(Context context){
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_them_sanpham);
@@ -178,6 +103,7 @@ public class FragmentSanpham extends Fragment {
             @Override
             public void onClick(View v) {
                 String tsp = tensp.getText().toString();
+
                 String tt = thongtin.getText().toString();
 
 
@@ -188,16 +114,10 @@ public class FragmentSanpham extends Fragment {
                 sanPhamDTO.setAnhsanpham(img.getText().toString());
                 sanPhamDTO.setThongtin(tt);
 
-                try {
-                    sanPhamDAO.insertRow(sanPhamDTO);
-                    Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                    loaddata();
-                    dialog.dismiss();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    dialog.dismiss();
-                }
-
+                sanPhamDAO.insertRow(sanPhamDTO);
+                Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                loaddata();
+                dialog.dismiss();
             }
         });
         huy.setOnClickListener(new View.OnClickListener() {

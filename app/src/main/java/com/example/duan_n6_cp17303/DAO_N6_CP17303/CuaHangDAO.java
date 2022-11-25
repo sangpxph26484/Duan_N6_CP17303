@@ -14,12 +14,14 @@ import java.util.List;
 
 public class CuaHangDAO {
     Connection objConn;
-    public CuaHangDAO(){
+
+    public CuaHangDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
-    public List<CuaHangDTO> getAll(){
+
+    public List<CuaHangDTO> getAll() {
         List<CuaHangDTO> listCuaHang = new ArrayList<CuaHangDTO>();
 
         try {
@@ -47,22 +49,22 @@ public class CuaHangDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCuaHang;
+        return listCuaHang;
     }
-    public void insertRow (CuaHangDTO cuaHangDTO){
+
+    public boolean insertRow(CuaHangDTO cuaHangDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'"+cuaHangDTO.getDiachi()+"','"+cuaHangDTO.getPhone()+"')";
+                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'" + cuaHangDTO.getDiachi() + "','" + cuaHangDTO.getPhone() + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -77,19 +79,20 @@ public class CuaHangDAO {
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
-
+            return true;
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void updateRow(CuaHangDTO cuaHangDTO){
+    public void updateRow(CuaHangDTO cuaHangDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE CUAHANG SET name= N'" + cuaHangDTO.getTencuahang()+"',N'"+ cuaHangDTO.getDiachi()+"','"+ cuaHangDTO.getPhone()+ "'WHERE id = " + cuaHangDTO.getId();
+                String sqlUpdate = "UPDATE CUAHANG SET name= N'" + cuaHangDTO.getTencuahang() + "',N'" + cuaHangDTO.getDiachi() + "','" + cuaHangDTO.getPhone() + "'WHERE id = " + cuaHangDTO.getId();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -102,7 +105,7 @@ public class CuaHangDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }

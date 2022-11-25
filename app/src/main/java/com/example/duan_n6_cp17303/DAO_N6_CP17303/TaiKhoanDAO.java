@@ -59,7 +59,7 @@ public class TaiKhoanDAO {
 
         return  listCat;
     }
-    public void insertRow (TaiKhoanDTO taiKhoanDTO){
+    public boolean insertRow (TaiKhoanDTO taiKhoanDTO){
 
         try {
             if (this.objConn != null) {
@@ -80,16 +80,18 @@ public class TaiKhoanDAO {
                 }
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
-
+            return true;
 
         } catch (Exception e) {
             Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
             e.printStackTrace();
+            return false;
         }
+
     }
 
     public void updateRow(TaiKhoanDTO taiKhoanDTO){
-
+        List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
@@ -110,19 +112,78 @@ public class TaiKhoanDAO {
             e.printStackTrace();
         }
     }
-//    public boolean checkuser(String username){
-//        Cursor cursor = db.rawQuery("Select * from tb_user where username = ?",new String[]{username});
-//        if(cursor.getCount()>0){
-//            return true;
-//        }else
-//            return  false;
-//    }
-//
-//    public boolean checkuserpass(String username,String password){
-//        Cursor cursor = db.rawQuery("Select * from tb_user where username = ? and password = ?",new String[]{username,password});
-//        if (cursor.getCount()>0){
-//            return true;
-//        }else
-//            return  false;
-//    }
+
+    public int checkLogin(String user, String pass) {
+
+        List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + user + "' AND PASS = '" + pass + "'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sql); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+
+                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
+                    taiKhoanDTO.setPassword(resultSet.getString("PASS")); // tên cột dữ liệu là pass
+
+                    listCat.add(taiKhoanDTO);
+
+                }
+            }
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        if (listCat.size() == 0) {
+            return -1;
+        }
+
+        return 1;
+    }
+
+    public int checkUser(String name) {
+        List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + name +"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sql); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+
+                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
+
+
+                    listCat.add(taiKhoanDTO);
+
+                }
+            }
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        if (listCat.size() == 0) {
+            return -1;
+        }
+
+        return 1;
+    }
+
 }
