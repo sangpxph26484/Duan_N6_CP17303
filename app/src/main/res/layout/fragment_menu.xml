@@ -51,7 +51,7 @@
                 android:textSize="23dp"
                 android:textColor="#000"
                 android:layout_marginLeft="8dp"
-                />
+                android:id="@+id/tv_tesst"/>
 
             <TextView
                 android:id="@+id/trangchu_tv_xemchitiet"

@@ -1,13 +1,12 @@
 package com.example.duan_n6_cp17303;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.CuaHangDAO;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.TaiKhoanDAO;
@@ -24,7 +23,7 @@ public class DangKyActivity extends AppCompatActivity {
 
         Button btn_dk = findViewById(R.id.dangky_btn_dangky);
         EditText ed_dktk = findViewById(R.id.dangky_ed_taikhoan);
-        EditText ed_dkmk= findViewById(R.id.dangky_ed_matkhau);
+        EditText ed_dkmk = findViewById(R.id.dangky_ed_matkhau);
         EditText ed_nlmk = findViewById(R.id.dangky_ed_nhaplaimatkhau);
         EditText ed_tenshop = findViewById(R.id.dangky_ed_ten);
         EditText ed_diachi = findViewById(R.id.dangky_ed_diachi);
@@ -47,27 +46,31 @@ public class DangKyActivity extends AppCompatActivity {
 
                 if (dktk.equals("") || dkmk.equals("") || nlmk.equals("") || tenshop.equals("") || diachi.equals("") || sdt.equals("")) {
                     Toast.makeText(DangKyActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
-                } else if (nlmk.equals(dkmk)) {
-                    taiKhoanDTO.setUsername(dktk);
-                    taiKhoanDTO.setPassword(dkmk);
-                    cuaHangDTO.setDiachi(diachi);
-                    cuaHangDTO.setPhone(sdt);
-                    cuaHangDTO.setTencuahang(tenshop);
-                    try {
-
-                        cuaHangDAO.insertRow(cuaHangDTO);
-                        taiKhoanDAO.insertRow(taiKhoanDTO);
-                        Toast.makeText(DangKyActivity.this, "Đăng Ký Thành công", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(DangKyActivity.this,DangNhapActivity.class);
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(DangKyActivity.this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT).show();
-                    }
                 } else {
-                    Toast.makeText(DangKyActivity.this, "Mật Khẩu Không Trùng Khớp", Toast.LENGTH_SHORT).show();
-                }
+                    if (nlmk.equals(dkmk)) {
+                        int a = taiKhoanDAO.checkUser(dktk);
+                        if (a == -1) {
+                            taiKhoanDTO.setUsername(dktk);
+                            taiKhoanDTO.setPassword(dkmk);
+                            cuaHangDTO.setDiachi(diachi);
+                            cuaHangDTO.setPhone(sdt);
+                            cuaHangDTO.setTencuahang(tenshop);
 
+                            if (taiKhoanDAO.insertRow(taiKhoanDTO) == true || cuaHangDAO.insertRow(cuaHangDTO) == true) {
+                                Toast.makeText(DangKyActivity.this, "Đăng Ký Thành công", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(DangKyActivity.this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT).show();
+                            }
+                        }else{
+                            Toast.makeText(DangKyActivity.this, "Tài Khoản Đã Tồn Tại", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    } else {
+                        Toast.makeText(DangKyActivity.this, "Mật Khẩu Không Trùng Khớp", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
             }
         });
     }

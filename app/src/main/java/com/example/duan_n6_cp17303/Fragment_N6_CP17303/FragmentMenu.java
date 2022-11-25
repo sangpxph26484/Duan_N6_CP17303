@@ -1,5 +1,7 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.duan_n6_cp17303.R;
 
@@ -32,5 +35,10 @@ public class FragmentMenu extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView name = view.findViewById(R.id.tv_tesst);
+        SharedPreferences sharedpreferences = getContext().getSharedPreferences("myPref",
+                Context.MODE_PRIVATE);
+
+
     }
 }
