@@ -34,7 +34,7 @@ public class DangNhapActivity extends AppCompatActivity {
         tv_chuadangky = findViewById(R.id.dangnhap_tv_chuadangky);
 
         TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-
+String a;
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
