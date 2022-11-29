@@ -1,6 +1,7 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -11,8 +12,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.duan_n6_cp17303.PhieuGiamGiaActivity;
 import com.example.duan_n6_cp17303.R;
 
 
@@ -36,9 +39,14 @@ public class FragmentMenu extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TextView name = view.findViewById(R.id.tv_tesst);
-        SharedPreferences sharedpreferences = getContext().getSharedPreferences("myPref",
-                Context.MODE_PRIVATE);
 
-
+        ImageView imageView = view.findViewById(R.id.trangchu_img_voucher);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PhieuGiamGiaActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

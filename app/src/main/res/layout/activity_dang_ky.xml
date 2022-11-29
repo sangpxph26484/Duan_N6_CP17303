@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +9,9 @@
 
     <ImageView
         android:layout_width="266dp"
-        android:layout_height="114dp"
-        android:src="@drawable/logo_truong"
-        android:layout_gravity="center"/>
+        android:layout_height="89dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo_truong" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,93 +22,148 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
-    <EditText
-        android:id="@+id/dangky_ed_ten"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilten"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botron_ed_dk"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:hint="Tên Shop"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_tenshop"
-        android:drawablePadding="10dp"
-        />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:startIconDrawable="@drawable/ic_tenshop">
 
-    <EditText
-        android:id="@+id/dangky_ed_taikhoan"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_ten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilusername"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/botron_ed_dk"
-        android:drawableLeft="@drawable/ic_hovaten"
-        android:drawablePadding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="Nhập Tài Khoản"
-        android:paddingLeft="10dp"
-        android:textColor="#000" />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:startIconDrawable="@drawable/ic_hovaten">
 
-    <EditText
-        android:id="@+id/dangky_ed_matkhau"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_taikhoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilpassword1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botron_ed_dk"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000"
-        android:hint="Nhập Mật Khẩu"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_mkk"
-        android:drawablePadding="10dp"
-        android:inputType="textPassword"
-        />
-    <EditText
-        android:id="@+id/dangky_ed_nhaplaimatkhau"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mật Khẩu"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_mkk">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_matkhau"
+            style=" "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilpassword"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botron_ed_dk"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000"
-        android:hint="Nhập Lại Mật Khẩu"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_mkk"
-        android:drawablePadding="10dp"
-        android:inputType="textPassword"
-        />
-    <EditText
-        android:id="@+id/dangky_ed_diachi"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Mật Khẩu"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_mkk">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_nhaplaimatkhau"
+            style=" "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tiluserdiachi"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botron_ed_dk"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="Địa Chỉ"
-        android:textColor="#000"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_diachi"
-        android:drawablePadding="10dp"
-        />
-    <EditText
-        android:id="@+id/dangky_ed_sdt"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:startIconDrawable="@drawable/ic_home">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_diachi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilusersdt"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botron_ed_dk"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textColor="#000"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:hint="SĐT"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_phone"
-        android:drawablePadding="10dp"
-        />
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:startIconDrawable="@drawable/ic_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangky_ed_sdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/dangky_btn_dangky"

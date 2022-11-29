@@ -44,6 +44,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actionbar"
+        android:layout_marginTop="20dp"
+        android:dividerHeight="14.0sp"
          />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
