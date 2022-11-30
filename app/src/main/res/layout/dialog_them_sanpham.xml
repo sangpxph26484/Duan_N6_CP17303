@@ -16,19 +16,20 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
+
     <EditText
         android:id="@+id/themsp_ed_tensp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ed_botron_themsp"
-        android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/ed_botron_themsp"
+        android:drawablePadding="10dp"
         android:hint="Tên Sản Phẩm"
         android:paddingLeft="10dp"
-        android:drawablePadding="10dp"
-        android:textStyle="bold"/>
+        android:textColor="#000"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/themsp_ed_giatien"

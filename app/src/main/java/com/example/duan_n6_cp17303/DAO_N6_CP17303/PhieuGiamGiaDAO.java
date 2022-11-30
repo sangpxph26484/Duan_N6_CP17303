@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.PhieuGiamGiaDTO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,7 +39,7 @@ public class PhieuGiamGiaDAO {
                     PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaDTO();
                     phieuGiamGiaDTO.setIdphieugiamgia(resultSet.getInt("ID"));
                     phieuGiamGiaDTO.setMagiamgia(resultSet.getString("MAGIAMGIA"));
-                    phieuGiamGiaDTO.setPhantram(resultSet.getString("PHANTRAM"));
+                    phieuGiamGiaDTO.setPhantram(resultSet.getString("PHAMTRAM"));
 
 
 
@@ -60,7 +61,7 @@ public class PhieuGiamGiaDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO PHIEUGIAMGIA(MAGIAMGIA,PHANTRAM) VALUES (N'" + phieuGiamGiaDTO.getMagiamgia() +"','"+phieuGiamGiaDTO.getPhantram()+"')";
+                String insertSQL = "INSERT INTO PHIEUGIAMGIA(MAGIAMGIA,PHAMTRAM) VALUES ('" + phieuGiamGiaDTO.getMagiamgia() +"',N'"+phieuGiamGiaDTO.getPhantram()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -103,6 +104,26 @@ public class PhieuGiamGiaDAO {
 
         } catch (Exception e) {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            e.printStackTrace();
+        }
+    }
+    public void deleteRow(int id){
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "DELETE FROM PHIEUGIAMGIA WHERE id = " + id;
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Delete");
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
         }
     }

@@ -44,7 +44,7 @@ public class DangKyActivity extends AppCompatActivity {
                 String diachi = ed_diachi.getText().toString();
                 String sdt = ed_sdt.getText().toString();
 
-                if (dktk.equals("") || dkmk.equals("") || nlmk.equals("") || tenshop.equals("") || diachi.equals("") || sdt.equals("")) {
+                if (dktk.equals("") || dkmk.equalsIgnoreCase("") || nlmk.equalsIgnoreCase("") || tenshop.equalsIgnoreCase("") || diachi.equalsIgnoreCase("") || sdt.equalsIgnoreCase("")) {
                     Toast.makeText(DangKyActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
                 } else {
                     if (nlmk.equals(dkmk)) {
@@ -58,6 +58,7 @@ public class DangKyActivity extends AppCompatActivity {
 
                             if (taiKhoanDAO.insertRow(taiKhoanDTO) == true || cuaHangDAO.insertRow(cuaHangDTO) == true) {
                                 Toast.makeText(DangKyActivity.this, "Đăng Ký Thành công", Toast.LENGTH_SHORT).show();
+                                onBackPressed();
                             } else {
                                 Toast.makeText(DangKyActivity.this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT).show();
                             }

@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="@drawable/anhbr1"
-    >
+    android:background="@drawable/anhbr1">
 
     <ImageView
         android:layout_width="300dp"
@@ -17,47 +17,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đăng Nhập"
-        android:textSize="30dp"
+        android:textSize="35dp"
         android:textColor="#f7941d"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         />
 
-    <EditText
-        android:id="@+id/dangnhap_ed_taikhoan"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilusername"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@drawable/botron_ed"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="UserName"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:paddingLeft="5dp"
-        android:drawableLeft="@drawable/ic_hovaten"
-        android:drawablePadding="10dp"
-        />
-    <EditText
-        android:id="@+id/dangnhap_ed_matkhau"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@drawable/botron_ed"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="PassWord"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:paddingLeft="5dp"
-        android:drawableLeft="@drawable/ic_mkk"
-        android:drawablePadding="10dp"
-        android:inputType="textPassword"
-        android:drawableRight="@drawable/ic_hienthipass"
-        android:paddingRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:hint="Tên Đăng Nhập"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:startIconDrawable="@drawable/ic_hovaten">
 
-        />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangnhap_ed_taikhoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tilpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="Mật Khẩu"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_mkk">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dangnhap_ed_matkhau"
+            style=" "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <CheckBox
         android:id="@+id/dangnhap_cbo_luumatkhau"

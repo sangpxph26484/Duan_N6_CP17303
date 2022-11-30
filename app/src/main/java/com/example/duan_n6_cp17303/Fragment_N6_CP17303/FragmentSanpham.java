@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.duan_n6_cp17303.Apdater_N6_CP17303.SanPhamAdapter;
+import com.example.duan_n6_cp17303.Adapter_N6_CP17303.SanPhamAdapter;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.SanPhamDAO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 import com.example.duan_n6_cp17303.R;

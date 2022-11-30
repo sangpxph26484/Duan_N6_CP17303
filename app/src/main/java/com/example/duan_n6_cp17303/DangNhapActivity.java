@@ -40,10 +40,10 @@ String a;
             public void onClick(View v) {
                 String tk = ed_user.getText().toString();
                 String mk = ed_pass.getText().toString();
-                if (tk.equals("") || mk.equals("")) {
+                if (tk.equalsIgnoreCase("") || mk.equalsIgnoreCase("")) {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
-                } else if (taiKhoanDAO.checkLogin(tk, mk) == 1) {
-
+                } else if (taiKhoanDAO.checkLogin(String.valueOf(tk.equalsIgnoreCase(tk)), String.valueOf(mk.equalsIgnoreCase(mk))) == 1) {
+                    remember(tk,mk,cbo_luumk.isChecked());
 
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
@@ -63,7 +63,30 @@ String a;
                 startActivity(intent);
             }
         });
+        SharedPreferences sharedPreferences = getSharedPreferences("Login",MODE_PRIVATE);
+        String u = sharedPreferences.getString("name","");
+        String p = sharedPreferences.getString("pass", "");
+        Boolean check_login = sharedPreferences.getBoolean("remember",false);
+
+        ed_user.setText(u);
+        ed_pass.setText(p);
+        cbo_luumk.setChecked(check_login);
     }
+    public void remember(String u, String p, boolean chk){
+        SharedPreferences preferences = getSharedPreferences("Login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        if(!chk){
+            editor.clear();
+        }
+        else {
+            editor.putString("name", u);
+            editor.putString("pass", p);
+            editor.putBoolean("remember", chk);
+        }
+        editor.commit();
+    }
+
 
 
 }

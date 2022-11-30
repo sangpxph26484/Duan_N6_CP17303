@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.CuaHangDAO;
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
@@ -26,7 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
-
+    ImageView img_voucher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         Connection conn = myDBHelper.openConnect();
 
         CuaHangDAO catDao = new CuaHangDAO();
+
+
 
         // bước 9 thì không cần phần trên, dùng DAO để lấy dữ liệu
 //        String tencuahang = "Chương đẹp trai1";
@@ -109,5 +112,6 @@ public class MainActivity extends AppCompatActivity {
         ft.attach(frg);
         ft.commit();
     }
+
 
 }

@@ -29,13 +29,14 @@
             android:text="Voucher"
             android:textSize="20dp"
             android:textStyle="italic" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/item_voucher_btn_them"
+        android:id="@+id/item_voucher_btn_xoa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@drawable/botron_linner"
-        android:text="Thêm"
-        android:layout_gravity="center"/>
+        android:text="Xóa" />
 </LinearLayout>

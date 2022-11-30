@@ -76,12 +76,12 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
     </LinearLayout>
+
     <ListView
         android:id="@+id/sanpham_lv_donHang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:dividerHeight="14.0sp"
         android:layout_marginTop="20dp"
-        />
+        android:dividerHeight="14.0sp" />
 </LinearLayout>
