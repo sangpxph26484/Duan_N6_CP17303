@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.duan_n6_cp17303.Adapter_N6_CP17303.PagerAdapterQLKH;
 import com.example.duan_n6_cp17303.R;
@@ -37,11 +38,21 @@ public class CollectionFragQuanlyKh extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewPager2 = view.findViewById(R.id.viewPagerQLKH);
+
+        ImageView img_back = view.findViewById(R.id.img_back);
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
+
+        viewPager2 = view.findViewById(R.id.viewPagerTK);
         adapter = new PagerAdapterQLKH(this);
 
         viewPager2.setAdapter(adapter);
-        TabLayout tab = view.findViewById(R.id.tabLayoutQLKH);
+        TabLayout tab = view.findViewById(R.id.tabLayoutTK);
 
         TabLayoutMediator mediator = new TabLayoutMediator(tab, viewPager2,
                 new TabLayoutMediator.TabConfigurationStrategy() {

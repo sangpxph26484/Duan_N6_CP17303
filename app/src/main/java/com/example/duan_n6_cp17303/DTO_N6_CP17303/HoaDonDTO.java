@@ -2,9 +2,9 @@ package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 
 public class HoaDonDTO {
     int idhoadon;
-    int idcthd;
     String ngaymua;
     String trangthai;
+    int idkhachhang;
 
     public int getIdhoadon() {
         return idhoadon;
@@ -14,12 +14,12 @@ public class HoaDonDTO {
         this.idhoadon = idhoadon;
     }
 
-    public int getIdcthd() {
-        return idcthd;
+    public int getIdkhachhang() {
+        return idkhachhang;
     }
 
-    public void setIdcthd(int idcthd) {
-        this.idcthd = idcthd;
+    public void setIdkhachhang(int idkhachhang) {
+        this.idkhachhang = idkhachhang;
     }
 
     public String getNgaymua() {

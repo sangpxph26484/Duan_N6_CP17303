@@ -3,6 +3,7 @@ package com.example.duan_n6_cp17303;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -40,9 +41,11 @@ String a;
             public void onClick(View v) {
                 String tk = ed_user.getText().toString();
                 String mk = ed_pass.getText().toString();
+
+
                 if (tk.equalsIgnoreCase("") || mk.equalsIgnoreCase("")) {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
-                } else if (taiKhoanDAO.checkLogin(String.valueOf(tk.equalsIgnoreCase(tk)), String.valueOf(mk.equalsIgnoreCase(mk))) == 1) {
+                } else if (taiKhoanDAO.checkLogin(tk,mk) == 1) {
                     remember(tk,mk,cbo_luumk.isChecked());
 
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);

@@ -37,7 +37,7 @@ public class HoaDonDAO {
 
                     HoaDonDTO hoaDonDTO = new HoaDonDTO();
                     hoaDonDTO.setIdhoadon(resultSet.getInt("ID"));
-                    hoaDonDTO.setIdcthd(resultSet.getInt("IDCTHD"));
+                    hoaDonDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
                     hoaDonDTO.setNgaymua(resultSet.getString("NGAYMUA"));
                     hoaDonDTO.setTrangthai(resultSet.getString("TRANGTHAI"));
 
@@ -106,4 +106,59 @@ public class HoaDonDAO {
             e.printStackTrace();
         }
     }
+    public int getSLDH(String ngaybatdau,String ngayketthuc){
+        int soluong = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "SELECT COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID = b.IDSANPHAM where a.NGAYMUA BETWEEN '"+ngaybatdau+"' AND '"+ngayketthuc+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("soluongdonhang");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  soluong;
+    }
+    public int getDTTK(String ngaybatdau,String ngayketthuc){
+        int soluong = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'tongdoanhthu' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+ngaybatdau+ "' AND '"+ngayketthuc+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("tongdoanhthu");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  soluong;
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
-import com.example.duan_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.LienHeDTO;
 
 import java.sql.Connection;
@@ -15,13 +14,14 @@ import java.util.List;
 
 public class LienHeDAO {
     Connection objConn;
-    public LienHeDAO(){
+
+    public LienHeDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<LienHeDTO> getAll(){
+    public List<LienHeDTO> getAll() {
         List<LienHeDTO> listCat = new ArrayList<LienHeDTO>();
 
         try {
@@ -38,30 +38,30 @@ public class LienHeDAO {
                     LienHeDTO lienHeDTO = new LienHeDTO();
                     lienHeDTO.setIdlienhe(resultSet.getInt("ID"));
                     lienHeDTO.setLienhe(resultSet.getString("LIENHE"));
-
-
+                    lienHeDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+                    lienHeDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
                     listCat.add(lienHeDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public void insertRow (LienHeDTO lienHeDTO){
+
+    public void insertRow(LienHeDTO lienHeDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO LIENHE(LIENHE) VALUES (N'" + lienHeDTO.getLienhe() +"')";
+                String insertSQL = "INSERT INTO LIENHE(LIENHE) VALUES (N'" + lienHeDTO.getLienhe() + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -78,12 +78,12 @@ public class LienHeDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
         }
     }
 
-    public void updateRow(LienHeDTO lienHeDTO){
+    public void updateRow(LienHeDTO lienHeDTO) {
 
         try {
             if (this.objConn != null) {
@@ -101,7 +101,7 @@ public class LienHeDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }

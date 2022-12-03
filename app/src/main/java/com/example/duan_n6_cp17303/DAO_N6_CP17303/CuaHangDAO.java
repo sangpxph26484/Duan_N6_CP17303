@@ -39,10 +39,6 @@ public class CuaHangDAO {
                     cuaHangDTO.setTencuahang(resultSet.getString("TENCUAHANG"));
                     cuaHangDTO.setDiachi(resultSet.getString("DIACHI"));
                     cuaHangDTO.setPhone(resultSet.getString("PHONE"));
-                    cuaHangDTO.setIdsanpham(resultSet.getInt("IDSANPHAM"));
-                    cuaHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
-                    cuaHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    cuaHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
 
                     listCuaHang.add(cuaHangDTO);
                 }

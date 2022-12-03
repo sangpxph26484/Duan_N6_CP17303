@@ -43,7 +43,7 @@ public class SanPhamDAO {
                     sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
                     sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
                     sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
-                    sanPhamDTO.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
+                    sanPhamDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
 
 
 
@@ -110,7 +110,7 @@ public class SanPhamDAO {
             e.printStackTrace();
         }
     }
-    public void deleteRow(SanPhamDTO sanPhamDTO){
+    public boolean deleteRow(SanPhamDTO sanPhamDTO){
 
         try {
             if (this.objConn != null) {
@@ -124,10 +124,11 @@ public class SanPhamDAO {
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
-
+            return true;
         } catch (Exception e) {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
+            return  false;
         }
     }
 

@@ -7,7 +7,7 @@ public class SanPhamDTO {
     int soluong;
     String anhsanpham;
     String thongtin;
-    int idbinhluan;
+    int idcuahang;
 
     public int getIdsanpham() {
         return idsanpham;
@@ -57,12 +57,12 @@ public class SanPhamDTO {
         this.thongtin = thongtin;
     }
 
-    public int getIdbinhluan() {
-        return idbinhluan;
+    public int getIdcuahang() {
+        return idcuahang;
     }
 
-    public void setIdbinhluan(int idbinhluan) {
-        this.idbinhluan = idbinhluan;
+    public void setIdcuahang(int idcuahang) {
+        this.idcuahang = idcuahang;
     }
 
     public SanPhamDTO() {
