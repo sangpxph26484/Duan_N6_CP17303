@@ -1,10 +1,8 @@
 package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 
-import android.database.Cursor;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
-import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 
 import java.sql.Connection;
@@ -38,11 +36,10 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
                     taiKhoanDTO.setIdtaikhoan(resultSet.getInt("ID"));
-                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));
+                    taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));
                     taiKhoanDTO.setPassword(resultSet.getString("PASS"));
                     taiKhoanDTO.setAvatar(resultSet.getString("AVATAR"));
-                    taiKhoanDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    taiKhoanDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+
 
 
 
@@ -64,7 +61,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO TAIKHOAN(USENAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPassword()  +"')";
+                String insertSQL = "INSERT INTO TAIKHOAN(USERNAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPassword()  +"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -91,7 +88,6 @@ public class TaiKhoanDAO {
     }
 
     public void updateRow(TaiKhoanDTO taiKhoanDTO){
-        List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
@@ -120,7 +116,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
 
-                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + user + "' AND PASS = '" + pass + "'";
+                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + user + "' AND PASS = '" + pass + "'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -130,7 +126,7 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
 
-                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
+                    taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));// truyền tên cột dữ liệu
                     taiKhoanDTO.setPassword(resultSet.getString("PASS")); // tên cột dữ liệu là pass
 
                     listCat.add(taiKhoanDTO);
@@ -156,7 +152,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
 
-                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + name +"'";
+                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + name +"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 

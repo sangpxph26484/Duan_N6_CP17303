@@ -35,11 +35,13 @@ public class BinhLuanDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    BinhLuanDTO objCat = new BinhLuanDTO();
-                    objCat.setIdbinhluan(resultSet.getInt("ID"));
-                    objCat.setBinhluan(resultSet.getString("BINHLUAN"));
+                    BinhLuanDTO binhLuanDTO = new BinhLuanDTO();
+                    binhLuanDTO.setIdbinhluan(resultSet.getInt("ID"));
+                    binhLuanDTO.setBinhluan(resultSet.getString("BINHLUAN"));
+                    binhLuanDTO.setIdsanpham(resultSet.getInt("IDSANPHAM"));
+                    binhLuanDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
-                    listCat.add(objCat);
+                    listCat.add(binhLuanDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 

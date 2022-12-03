@@ -5,8 +5,7 @@ public class TaiKhoanDTO {
     String username;
     String password;
     String avatar;
-    int idkhachhang;
-    int idcuahang;
+
 
     public int getIdtaikhoan() {
         return idtaikhoan;
@@ -40,21 +39,7 @@ public class TaiKhoanDTO {
         this.avatar = avatar;
     }
 
-    public int getIdkhachhang() {
-        return idkhachhang;
-    }
 
-    public void setIdkhachhang(int idkhachhang) {
-        this.idkhachhang = idkhachhang;
-    }
-
-    public int getIdcuahang() {
-        return idcuahang;
-    }
-
-    public void setIdcuahang(int idcuahang) {
-        this.idcuahang = idcuahang;
-    }
 
     public TaiKhoanDTO() {
     }

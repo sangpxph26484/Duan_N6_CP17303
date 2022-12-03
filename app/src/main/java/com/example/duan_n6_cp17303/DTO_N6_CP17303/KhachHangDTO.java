@@ -6,9 +6,7 @@ public class KhachHangDTO {
     String phone;
     String email;
     String diachi;
-    int idhoadon;
-    int idphieugiamgia;
-    int idlienhe;
+    String username;
 
     public int getIdkhachhang() {
         return idkhachhang;
@@ -50,28 +48,12 @@ public class KhachHangDTO {
         this.diachi = diachi;
     }
 
-    public int getIdhoadon() {
-        return idhoadon;
+    public String getUsername() {
+        return username;
     }
 
-    public void setIdhoadon(int idhoadon) {
-        this.idhoadon = idhoadon;
-    }
-
-    public int getIdphieugiamgia() {
-        return idphieugiamgia;
-    }
-
-    public void setIdphieugiamgia(int idphieugiamgia) {
-        this.idphieugiamgia = idphieugiamgia;
-    }
-
-    public int getIdlienhe() {
-        return idlienhe;
-    }
-
-    public void setIdlienhe(int idlienhe) {
-        this.idlienhe = idlienhe;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public KhachHangDTO() {

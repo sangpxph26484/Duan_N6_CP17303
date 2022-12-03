@@ -1,18 +1,18 @@
 package com.example.duan_n6_cp17303.DTO_N6_CP17303;
 
 public class CTHDDTO {
-    int idcthd;
+    int idhoadon;
     int idsanpham;
     String tenkhachhang;
     String soluong;
     String tongtien;
 
-    public int getIdcthd() {
-        return idcthd;
+    public int getIdhoadon() {
+        return idhoadon;
     }
 
-    public void setIdcthd(int idcthd) {
-        this.idcthd = idcthd;
+    public void setIdhoadon(int idhoadon) {
+        this.idhoadon = idhoadon;
     }
 
     public int getIdsanpham() {

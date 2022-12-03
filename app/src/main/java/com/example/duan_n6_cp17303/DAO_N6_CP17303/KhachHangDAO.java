@@ -41,9 +41,7 @@ public class KhachHangDAO {
                     khachHangDTO.setPhone(resultSet.getString("PHONE"));
                     khachHangDTO.setEmail(resultSet.getString("EMAIL"));
                     khachHangDTO.setDiachi(resultSet.getString("DIACHI"));
-                    khachHangDTO.setIdhoadon(resultSet.getInt("IDHOADON"));
-                    khachHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
-                    khachHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
+                    khachHangDTO.setUsername(resultSet.getString("USERNAME"));
 
 
                     listCat.add(khachHangDTO);

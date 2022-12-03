@@ -33,7 +33,7 @@
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutQLKH"
+        android:id="@+id/tabLayoutTK"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,19 +41,18 @@
         app:layout_constraintTop_toBottomOf="@id/actionbar"
         android:background="@color/colorbackgounditem"
         app:tabTextColor="@color/black"
-        app:tabMode="fixed"
-        android:layout_margin="10dp">
+        app:tabMode="fixed">
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerQLKH"
+        android:id="@+id/viewPagerTK"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayoutThem" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayoutTK" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

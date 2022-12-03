@@ -120,15 +120,16 @@ public class FragmentSanpham extends Fragment {
                 xoa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        try {
-                            sanPhamDAO.deleteRow(list.get(position));
+                        if (sanPhamDAO.deleteRow(list.get(position)) == true) {
                             Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                             loaddata();
                             dialog.dismiss();
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        } else {
+                            Toast.makeText(getContext(), "Xóa Không thành công", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                         }
+
+
                     }
                 });
                 huy.setOnClickListener(new View.OnClickListener() {
