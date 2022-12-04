@@ -68,17 +68,17 @@ public class FragmentTkDt extends Fragment {
                 int t12 = cthddao.getDtT12(nam);
 
                 NoOfEmp.add(new BarEntry(10, t1));
-                NoOfEmp.add(new BarEntry(11, t2));
-                NoOfEmp.add(new BarEntry(12, t3));
-                NoOfEmp.add(new BarEntry(13, t4));
-                NoOfEmp.add(new BarEntry(15, t5));
-                NoOfEmp.add(new BarEntry(16, t6));
-                NoOfEmp.add(new BarEntry(17, t7));
-                NoOfEmp.add(new BarEntry(18, t8));
-                NoOfEmp.add(new BarEntry(19, t9));
-                NoOfEmp.add(new BarEntry(20, t10));
-                NoOfEmp.add(new BarEntry(21, t11));
-                NoOfEmp.add(new BarEntry(22, t12));
+                NoOfEmp.add(new BarEntry(12, t2));
+                NoOfEmp.add(new BarEntry(14, t3));
+                NoOfEmp.add(new BarEntry(16, t4));
+                NoOfEmp.add(new BarEntry(18, t5));
+                NoOfEmp.add(new BarEntry(20, t6));
+                NoOfEmp.add(new BarEntry(22, t7));
+                NoOfEmp.add(new BarEntry(24, t8));
+                NoOfEmp.add(new BarEntry(26, t9));
+                NoOfEmp.add(new BarEntry(28, t10));
+                NoOfEmp.add(new BarEntry(30, t11));
+                NoOfEmp.add(new BarEntry(32, t12));
 
 
                 ArrayList month = new ArrayList();

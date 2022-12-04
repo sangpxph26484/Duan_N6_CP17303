@@ -21,31 +21,9 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tilten"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="Tên Shop"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:startIconDrawable="@drawable/ic_tenshop">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_ten"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_tilusername"
@@ -87,7 +65,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dangky_ed_matkhau"
-            style=" "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -111,59 +88,14 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dangky_ed_nhaplaimatkhau"
-            style=" "
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textSize="20sp"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tiluserdiachi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Địa Chỉ"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:startIconDrawable="@drawable/ic_home">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_diachi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tilusersdt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="SĐT"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:startIconDrawable="@drawable/ic_phone">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_sdt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/dangky_btn_dangky"

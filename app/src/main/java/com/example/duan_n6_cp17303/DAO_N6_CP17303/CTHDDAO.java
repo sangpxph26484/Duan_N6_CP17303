@@ -108,7 +108,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut12' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-12-1' AND '"+nam+"-12-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut12' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-12-01' AND '"+nam+"-12-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -135,7 +135,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut11' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-11-1' AND '"+nam+"-11-30'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut11' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-11-01' AND '"+nam+"-11-30'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -162,7 +162,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut10' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-10-1' AND '"+nam+"-10-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut10' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-10-01' AND '"+nam+"-10-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -189,7 +189,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut9' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-09-1' AND '"+nam+"-09-30'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut9' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-09-01' AND '"+nam+"-09-30'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -216,7 +216,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut8' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-08-1' AND '"+nam+"-08-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut8' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-08-01' AND '"+nam+"-08-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -243,7 +243,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut7' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-07-1' AND '"+nam+"-07-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut7' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-07-01' AND '"+nam+"-07-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -270,7 +270,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut6' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-06-1' AND '"+nam+"-06-30'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut6' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-06-01' AND '"+nam+"-06-30'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -297,7 +297,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut5' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-05-1' AND '"+nam+"-5-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut5' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-05-01' AND '"+nam+"-5-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -324,7 +324,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut4' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-04-1' AND '"+nam+"-04-30'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut4' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-04-01' AND '"+nam+"-04-30'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -351,7 +351,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut3' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-03-01' AND '"+nam+"-03-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut3' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-03-01' AND '"+nam+"-03-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -380,7 +380,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut2' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-02-1' AND '"+nam+"-02-28'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut2' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-02-01' AND '"+nam+"-02-28'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -407,7 +407,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut1' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+nam+"-01-01' AND '"+nam+"-01-31'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'doanhthut1' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.NGAYMUA  BETWEEN  '"+nam+"-01-01' AND '"+nam+"-01-31'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 

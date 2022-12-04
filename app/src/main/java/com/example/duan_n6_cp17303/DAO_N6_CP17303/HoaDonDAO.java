@@ -3,8 +3,8 @@ package com.example.duan_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 import com.example.duan_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
-import com.example.duan_n6_cp17303.DTO_N6_CP17303.CuaHangDTO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.HoaDonDTO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.QLKHDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -160,5 +160,187 @@ public class HoaDonDAO {
 
         return  soluong;
     }
+    public long getDT(){
+        long soluong = 0;
+        try {
+            if (this.objConn != null) {
 
+                String sqlQuery = "select SUM(b.SOLUONG*b.TONGTIEN) as 'doanhthu' FROM HOADON a  inner join CHITIETHOADON b on a.ID  = b.IDHOADON";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("doanhthu");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  soluong;
+    }
+    public int getSLDH(){
+        int soluong = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("soluongdonhang");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  soluong;
+    }
+    public List<QLKHDTO> getDonHang(){
+        List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "inner join HOADON\n" +
+                        "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
+                        "inner join KHACHHANG\n" +
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    QLKHDTO qlkhdto = new QLKHDTO();
+                    qlkhdto.setId(resultSet.getInt("ID"));
+                    qlkhdto.setTongtien(resultSet.getFloat("TONGTIEN"));
+                    qlkhdto.setNgaymua(resultSet.getString("NGAYMUA"));
+                    qlkhdto.setTrangthai(resultSet.getString("TRANGTHAI"));
+                    qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
+                    qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+                    qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+
+
+                    listCat.add(qlkhdto);
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  listCat;
+    }
+    public List<QLKHDTO> getDonHangDG(){
+        List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "inner join HOADON\n" +
+                        "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
+                        "inner join KHACHHANG\n" +
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Đã giao'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    QLKHDTO qlkhdto = new QLKHDTO();
+                    qlkhdto.setId(resultSet.getInt("ID"));
+                    qlkhdto.setTongtien(resultSet.getFloat("TONGTIEN"));
+                    qlkhdto.setNgaymua(resultSet.getString("NGAYMUA"));
+                    qlkhdto.setTrangthai(resultSet.getString("TRANGTHAI"));
+                    qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
+                    qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+                    qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+
+
+                    listCat.add(qlkhdto);
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  listCat;
+    }
+    public List<QLKHDTO> getDonHangCG(){
+        List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "inner join HOADON\n" +
+                        "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
+                        "inner join KHACHHANG\n" +
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Chưa Giao'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    QLKHDTO qlkhdto = new QLKHDTO();
+                    qlkhdto.setId(resultSet.getInt("ID"));
+                    qlkhdto.setTongtien(resultSet.getFloat("TONGTIEN"));
+                    qlkhdto.setNgaymua(resultSet.getString("NGAYMUA"));
+                    qlkhdto.setTrangthai(resultSet.getString("TRANGTHAI"));
+                    qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
+                    qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+                    qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+
+
+                    listCat.add(qlkhdto);
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  listCat;
+    }
 }

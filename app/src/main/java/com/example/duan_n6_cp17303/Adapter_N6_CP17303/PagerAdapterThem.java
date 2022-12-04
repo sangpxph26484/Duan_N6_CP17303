@@ -9,7 +9,7 @@ import com.example.duan_n6_cp17303.Fragment_N6_CP17303.FragmentLienhe;
 
 public class PagerAdapterThem extends FragmentStateAdapter {
 
-    int soluongPage = 3;
+    int soluongPage = 2;
     public PagerAdapterThem(@NonNull Fragment fragment) {
         super(fragment);
     }

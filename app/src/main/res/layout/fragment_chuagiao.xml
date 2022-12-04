@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment_N6_CP17303.FragmentChuagiao">
+    tools:context=".Fragment_N6_CP17303.FragmentAll">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/lv_qlkhcg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="8dp"
+        android:dividerHeight="14.0sp"/>
+
 
 </FrameLayout>

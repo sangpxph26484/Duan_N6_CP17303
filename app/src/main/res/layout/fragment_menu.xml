@@ -97,7 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Đơn Hàng Mới"
+                    android:text="Số lượng đơn"
                     android:textColor="#000"
                     android:textSize="16dp"
                     android:textStyle="bold"
