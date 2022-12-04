@@ -3,7 +3,6 @@ package com.example.duan_n6_cp17303;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -35,7 +34,7 @@ public class DangNhapActivity extends AppCompatActivity {
         tv_chuadangky = findViewById(R.id.dangnhap_tv_chuadangky);
 
         TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-String a;
+        String a;
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,8 +44,8 @@ String a;
 
                 if (tk.equalsIgnoreCase("") || mk.equalsIgnoreCase("")) {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
-                } else if (taiKhoanDAO.checkLogin(tk,mk) == 1) {
-                    remember(tk,mk,cbo_luumk.isChecked());
+                } else if (taiKhoanDAO.checkLogin(tk, mk) == 1) {
+                    remember(tk, mk, cbo_luumk.isChecked());
 
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
@@ -66,30 +65,29 @@ String a;
                 startActivity(intent);
             }
         });
-        SharedPreferences sharedPreferences = getSharedPreferences("Login",MODE_PRIVATE);
-        String u = sharedPreferences.getString("name","");
+        SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
+        String u = sharedPreferences.getString("name", "");
         String p = sharedPreferences.getString("pass", "");
-        Boolean check_login = sharedPreferences.getBoolean("remember",false);
+        Boolean check_login = sharedPreferences.getBoolean("remember", false);
 
         ed_user.setText(u);
         ed_pass.setText(p);
         cbo_luumk.setChecked(check_login);
     }
-    public void remember(String u, String p, boolean chk){
+
+    public void remember(String u, String p, boolean chk) {
         SharedPreferences preferences = getSharedPreferences("Login", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
-        if(!chk){
+        if (!chk) {
             editor.clear();
-        }
-        else {
+        } else {
             editor.putString("name", u);
             editor.putString("pass", p);
             editor.putBoolean("remember", chk);
         }
         editor.commit();
     }
-
 
 
 }
