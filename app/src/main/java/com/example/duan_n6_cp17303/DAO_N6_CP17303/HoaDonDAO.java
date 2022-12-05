@@ -15,13 +15,14 @@ import java.util.List;
 
 public class HoaDonDAO {
     Connection objConn;
-    public HoaDonDAO(){
+
+    public HoaDonDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<HoaDonDTO> getAll(){
+    public List<HoaDonDTO> getAll() {
         List<HoaDonDTO> listCat = new ArrayList<HoaDonDTO>();
 
         try {
@@ -47,22 +48,22 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public void insertRow (HoaDonDTO hoaDonDTO){
+
+    public void insertRow(HoaDonDTO hoaDonDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO HOADON(NGAYMUA,TRANGTHAI) VALUES (N'" + hoaDonDTO.getNgaymua() + "',N'"+hoaDonDTO.getTrangthai()+"')";
+                String insertSQL = "INSERT INTO HOADON(NGAYMUA,TRANGTHAI) VALUES (N'" + hoaDonDTO.getNgaymua() + "',N'" + hoaDonDTO.getTrangthai() + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -79,17 +80,17 @@ public class HoaDonDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
         }
     }
 
-    public void updateRow(HoaDonDTO hoaDonDTO){
+    public void updateRow(HoaDonDTO hoaDonDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE HOADON SET name= N'" + hoaDonDTO.getNgaymua()+"',N'"+ hoaDonDTO.getTrangthai()+ "'WHERE id = " + hoaDonDTO.getIdhoadon();
+                String sqlUpdate = "UPDATE HOADON SET name= N'" + hoaDonDTO.getNgaymua() + "',N'" + hoaDonDTO.getTrangthai() + "'WHERE id = " + hoaDonDTO.getIdhoadon();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -102,16 +103,17 @@ public class HoaDonDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }
-    public int getSLDH(String ngaybatdau,String ngayketthuc){
+
+    public int getSLDH(String ngaybatdau, String ngayketthuc) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID = b.IDSANPHAM where a.NGAYMUA BETWEEN '"+ngaybatdau+"' AND '"+ngayketthuc+"'";
+                String sqlQuery = "SELECT COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID = b.IDSANPHAM where a.NGAYMUA BETWEEN '" + ngaybatdau + "' AND '" + ngayketthuc + "'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -125,20 +127,20 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  soluong;
+        return soluong;
     }
-    public int getDTTK(String ngaybatdau,String ngayketthuc){
+
+    public int getDTTK(String ngaybatdau, String ngayketthuc) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'tongdoanhthu' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '"+ngaybatdau+ "' AND '"+ngayketthuc+"'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'tongdoanhthu' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '" + ngaybatdau + "' AND '" + ngayketthuc + "'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -152,20 +154,20 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  soluong;
+        return soluong;
     }
-    public long getDT(){
+
+    public long getDT() {
         long soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select SUM(b.SOLUONG*b.TONGTIEN) as 'doanhthu' FROM HOADON a  inner join CHITIETHOADON b on a.ID  = b.IDHOADON";
+                String sqlQuery = "select SUM(b.SOLUONG*b.TONGTIEN) as 'doanhthu' FROM HOADON a  inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.TRANGTHAI like N'Đã Giao'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -179,15 +181,15 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  soluong;
+        return soluong;
     }
-    public int getSLDH(){
+
+    public int getSLDH() {
         int soluong = 0;
         try {
             if (this.objConn != null) {
@@ -206,15 +208,15 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  soluong;
+        return soluong;
     }
-    public List<QLKHDTO> getDonHang(){
+
+    public List<QLKHDTO> getDonHang() {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
@@ -249,15 +251,15 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public List<QLKHDTO> getDonHangDG(){
+
+    public List<QLKHDTO> getDonHangDG() {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
@@ -292,15 +294,15 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public List<QLKHDTO> getDonHangCG(){
+
+    public List<QLKHDTO> getDonHangCG() {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
@@ -335,12 +337,99 @@ public class HoaDonDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
+    }
+
+    public int getSLDHcg() {
+        int soluong = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select COUNT(HOADON.ID) as 'soluongchuagiao' \n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "inner join HOADON\n" +
+                        "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
+                        "inner join KHACHHANG\n" +
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Chưa Giao'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("soluongchuagiao");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return soluong;
+    }
+
+    public int getSLDHdg() {
+        int soluong = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select COUNT(HOADON.ID) as 'soluongdagiao' \n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "inner join HOADON\n" +
+                        "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
+                        "inner join KHACHHANG\n" +
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Đã giao'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    soluong = resultSet.getInt("soluongdagiao");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return soluong;
+    }
+
+    public boolean updateTrangthai(int id, String trangthai) {
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "UPDATE HOADON SET TRANGTHAI= N'" + trangthai + "'WHERE id = " + id;
+
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Update");
+
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
+            e.printStackTrace();
+            return false;
+        }
     }
 }

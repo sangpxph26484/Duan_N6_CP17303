@@ -1,5 +1,6 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,11 +10,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.duan_n6_cp17303.Adapter_N6_CP17303.QLKHAdapter;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.HoaDonDAO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.QLKHDTO;
 import com.example.duan_n6_cp17303.R;
+
+import java.util.List;
 
 
 public class FragmentChuagiao extends Fragment {
@@ -21,7 +30,7 @@ public class FragmentChuagiao extends Fragment {
     ListView lv;
     HoaDonDAO dao;
     QLKHAdapter adapter;
-
+    List<QLKHDTO> list;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,12 +44,63 @@ public class FragmentChuagiao extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         loaddata();
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.dialog_qlhoadon);
+
+                list = dao.getDonHangCG();
+
+                QLKHDTO qlkhdto = list.get(position);
+
+
+                RadioButton cbo_chuagiao = dialog.findViewById(R.id.cbo_chuagiao);
+                RadioButton cbo_dagiao = dialog.findViewById(R.id.cbo_dagiao);
+                
+
+
+                Button capnhat = dialog.findViewById(R.id.btn_capnhat);
+                Button huy = dialog.findViewById(R.id.btn_huy);
+
+                final String[] a = {null};
+                capnhat.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (cbo_chuagiao.isChecked()){
+                            a[0] = "Chưa Giao";
+                        }else{
+                            a[0] = "Đã Giao";
+                        }
+
+                        if (dao.updateTrangthai(qlkhdto.getId(), a[0])==true){
+                            Toast.makeText(getContext(), "Cập Nhật Thành Công", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            loaddata();
+                        }else {
+                            Toast.makeText(getContext(), "Cập Nhật Thất Bại", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+                    }
+                });
+
+
+
+                huy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+            }
+        });
     }
 
     public void loaddata() {
         dao = new HoaDonDAO();
-
-
         adapter = new QLKHAdapter(dao.getDonHangCG(), getContext());
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
