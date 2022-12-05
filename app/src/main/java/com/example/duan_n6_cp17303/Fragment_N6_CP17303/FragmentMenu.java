@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
 
 
 public class FragmentMenu extends Fragment {
-    TextView tv_xemchitiet, tv_doanhthu, tv_soluongdonhang;
+    TextView tv_xemchitiet, tv_doanhthu, tv_soluongdonhang,tv_soluongdagiao,tv_soluongchuagiao;
     ImageView img_info;
     HoaDonDAO dao;
 
@@ -41,6 +41,9 @@ public class FragmentMenu extends Fragment {
         tv_doanhthu = view.findViewById(R.id.trangchu_tv_doanhthu);
         tv_soluongdonhang = view.findViewById(R.id.trangchu_tv_donhangmoi);
         img_info = view.findViewById(R.id.trangchu_img_info);
+        tv_soluongdagiao = view.findViewById(R.id.trangchu_tv_dagiao);
+        tv_soluongchuagiao = view.findViewById(R.id.trangchu_tv_chuagiao);
+
         return view;
     }
 
@@ -56,8 +59,15 @@ public class FragmentMenu extends Fragment {
 
         long a = dao.getDT();
         int b = dao.getSLDH();
+        int c = dao.getSLDHcg();
+        int d = dao.getSLDHdg();
+
+
         tv_doanhthu.setText(decimalFormat.format(a) + "đ");
         tv_soluongdonhang.setText(b+"");
+        tv_soluongchuagiao.setText(c+"");
+        tv_soluongdagiao.setText(d+"");
+
         tv_xemchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

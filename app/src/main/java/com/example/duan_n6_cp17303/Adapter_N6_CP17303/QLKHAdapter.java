@@ -61,7 +61,7 @@ public class QLKHAdapter extends BaseAdapter {
         QLKHDTO qlkhdto = list.get(position);
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         Glide.with(view.getContext()).load(Uri.parse(qlkhdto.getAnhsanpham())).into(imgItemsp);
-        tvItemtenkh.setText("Tên Khách Hàng: "+ qlkhdto.getTenkhachhang());
+        tvItemtenkh.setText("Họ Tên: "+ qlkhdto.getTenkhachhang());
         tvItemsoluong.setText("Số Lượng:"+qlkhdto.getSoluong()+"");
         tvItemtongtien.setText("Tổng Tiền: "+decimalFormat.format(qlkhdto.getTongtien())  + "đ");
         tvItemtrangthai.setText("Trạng Thái: "+qlkhdto.getTrangthai());

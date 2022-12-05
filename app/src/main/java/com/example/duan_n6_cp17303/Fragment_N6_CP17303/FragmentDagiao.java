@@ -40,7 +40,6 @@ public class FragmentDagiao extends Fragment {
     public void loaddata() {
         dao = new HoaDonDAO();
 
-
         adapter = new QLKHAdapter(dao.getDonHangDG(), getContext());
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();

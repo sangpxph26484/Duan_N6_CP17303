@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 import com.example.duan_n6_cp17303.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class SanPhamAdapter extends BaseAdapter {
@@ -50,7 +51,7 @@ public class SanPhamAdapter extends BaseAdapter {
         } else {
             view = convertView;
         }
-
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         TextView tv_tensp = view.findViewById(R.id.item_sanpham_tv_tensanpham);
         TextView tv_gia = view.findViewById(R.id.item_sanpham_tv_gia);
         TextView tv_thongtin = view.findViewById(R.id.item_sanpham_tv_thongtin);
@@ -60,7 +61,7 @@ public class SanPhamAdapter extends BaseAdapter {
 
 
         tv_tensp.setText("Tên Sản Phẩm: " + sanPhamDTO.getTensanpham() + "");
-        tv_gia.setText("Giá: " + sanPhamDTO.getGiatien() + "");
+        tv_gia.setText("Giá: " + decimalFormat.format(sanPhamDTO.getGiatien()));
         tv_thongtin.setText("Thông Tin: " + sanPhamDTO.getThongtin());
         tv_soluong.setText("Số Lượng: " + sanPhamDTO.getSoluong() + "");
 
