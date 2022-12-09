@@ -1,6 +1,9 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +34,7 @@ public class FragmentChuagiao extends Fragment {
     HoaDonDAO dao;
     QLKHAdapter adapter;
     List<QLKHDTO> list;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,8 +53,9 @@ public class FragmentChuagiao extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dialog_qlhoadon);
-
-                list = dao.getDonHangCG();
+                SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                String user = sharedPreferences.getString("key_TK1","");
+                list = dao.getDonHangCG(user);
 
                 QLKHDTO qlkhdto = list.get(position);
 
@@ -100,8 +105,10 @@ public class FragmentChuagiao extends Fragment {
     }
 
     public void loaddata() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
         dao = new HoaDonDAO();
-        adapter = new QLKHAdapter(dao.getDonHangCG(), getContext());
+        adapter = new QLKHAdapter(dao.getDonHangCG(user), getContext());
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

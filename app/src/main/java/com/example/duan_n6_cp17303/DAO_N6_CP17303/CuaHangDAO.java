@@ -58,7 +58,7 @@ public class CuaHangDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'" + cuaHangDTO.getDiachi() + "','" + cuaHangDTO.getPhone() + "')";
+                String insertSQL = "INSERT INTO CUAHANG(TENCUAHANG,DIACHI,PHONE,USERNAME) VALUES (N'" + cuaHangDTO.getTencuahang() + "',N'" + cuaHangDTO.getDiachi() + "','" + cuaHangDTO.getPhone() + "','" + cuaHangDTO.getUsername() + "')";
 
                 String generatedColumns[] = {"ID"};
 
@@ -104,5 +104,56 @@ public class CuaHangDAO {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
+    }
+
+    public String getTenshop(String user) {
+        String ten = null;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select TENCUAHANG from CUAHANG where USERNAME like '" + user + "'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    ten = resultSet.getString("TENCUAHANG");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return ten;
+    }
+    public int getIDshop(String user) {
+        int ten = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select ID from CUAHANG Where USERNAME like '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    ten = resultSet.getInt("ID");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return ten;
     }
 }

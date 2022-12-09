@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.TaiKhoanDAO;
 
 public class DangNhapActivity extends AppCompatActivity {
-    String a;
     EditText ed_user, ed_pass;
     CheckBox cbo_luumk;
     Button btn_dangnhap;
@@ -46,10 +45,14 @@ public class DangNhapActivity extends AppCompatActivity {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
                 } else if (taiKhoanDAO.checkLogin(tk, mk) == 1) {
                     remember(tk, mk, cbo_luumk.isChecked());
-
-                    Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
+                    SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Mypref",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("key_TK1",tk);
+                    editor.commit();
+                    Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     startActivity(intent);
+
                 } else {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thất bại", Toast.LENGTH_LONG).show();
                 }

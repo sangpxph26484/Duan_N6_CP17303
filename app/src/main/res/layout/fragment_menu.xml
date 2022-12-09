@@ -23,18 +23,61 @@
             android:layout_height="wrap_content"
             android:text="Trang Chủ"
             android:layout_weight="1"
-            android:layout_marginRight="15dp"
             android:textStyle="bold"
             android:textSize="26sp"
             android:textColor="@color/black"
             android:padding="8dp"
             android:gravity="center"/>
     </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/img_dangxuat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logout"
+        android:layout_gravity="right"
+        android:padding="8dp"
+        android:layout_marginRight="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng Xuất"
+        android:layout_gravity="right"
+        android:padding="8dp"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/xinchaoshop"
+            android:textStyle="bold"
+            android:textColor="#089C8E"
+            android:textSize="15sp"
+
+            />
+        <TextView
+            android:id="@+id/tv_tenshop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đặng Chương !"
+            android:textStyle="bold"
+            android:textColor="#089C8E"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:background="@drawable/botron_linner"
-        android:layout_marginTop="70dp"
         android:layout_gravity="center"
         android:orientation="vertical"
         >
@@ -170,18 +213,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="40dp"
-        android:paddingLeft="25dp"
+
         >
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1"
+            android:gravity="center"
             >
 
             <ImageView
                 android:id="@+id/trangchu_img_themsanpham"
-                android:layout_width="91dp"
+                android:layout_width="90dp"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_add" />
 
@@ -199,7 +243,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/trangchu_img_voucher"
@@ -221,7 +265,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/trangchu_img_info"

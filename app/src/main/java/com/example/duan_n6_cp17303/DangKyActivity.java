@@ -1,5 +1,6 @@
 package com.example.duan_n6_cp17303;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +46,7 @@ public class DangKyActivity extends AppCompatActivity {
 
                             if (taiKhoanDAO.insertRow(taiKhoanDTO) == true) {
                                 Toast.makeText(DangKyActivity.this, "Đăng Ký Thành công", Toast.LENGTH_SHORT).show();
-                                onBackPressed();
+                                startActivity(new Intent(DangKyActivity.this,DkThongTinActivity.class));
 
                             } else {
                                 Toast.makeText(DangKyActivity.this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT).show();

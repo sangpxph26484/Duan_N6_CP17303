@@ -1,5 +1,8 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,10 +43,12 @@ public class FragmentAll extends Fragment {
     }
 
     public void loaddata() {
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
+
         dao = new HoaDonDAO();
-
-
-        adapter = new QLKHAdapter(dao.getDonHang(), getContext());
+        adapter = new QLKHAdapter(dao.getDonHang(user), getContext());
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
