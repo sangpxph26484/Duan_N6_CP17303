@@ -1,6 +1,9 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +67,12 @@ public class FragmentTkDh extends Fragment {
         btn_thongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int soluong = hoaDonDAO.getSLDH(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString());
-                int doanhthu = hoaDonDAO.getDTTK(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString());
+                SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                String user = sharedPreferences.getString("key_TK1","");
+
+                int soluong = hoaDonDAO.getSLDH(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString(),user);
+
+                int doanhthu = hoaDonDAO.getDTTK(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString(),user);
 
                 tv_tongdoanhthu.setText(doanhthu + "đ");
                 tv_sldonhang.setText(soluong + "");

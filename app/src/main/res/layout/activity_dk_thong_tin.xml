@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="8dp"
     android:background="@drawable/bgrd1">
 
@@ -25,37 +25,36 @@
             android:layout_weight="1"
             android:paddingRight="20dp"/>
     </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:text="Đăng Ký Thông Tin"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:text="Đăng Ký"
-        android:textColor="@color/black"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        />
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_tilusername"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nhập Tài Khoản"
+        android:hint="Tên Cửa Hàng"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:startIconDrawable="@drawable/ic_hovaten"
-        app:boxStrokeColor="@color/white"
-        >
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_taikhoan"
+            android:id="@+id/dangky_ed_tencuahang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
@@ -67,69 +66,65 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_tilpassword1"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Mật Khẩu"
+        android:hint="Số Điện Thoại"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
-        app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_mkk"
-        app:boxStrokeColor="@color/white"
-        >
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_matkhau"
+            android:id="@+id/dangky_ed_sdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:textSize="20sp"
+            android:inputType="number"
             android:textStyle="bold"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_tilpassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginTop="10dp"
-        android:hint="Nhập Lại Mật Khẩu"
+        android:hint="Địa Chỉ"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
-        app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_mkk"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:boxStrokeColor="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dangky_ed_nhaplaimatkhau"
-
+            android:id="@+id/dangky_ed_diachi"
+android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
-        android:id="@+id/dangky_btn_dangky"
+        android:id="@+id/dangky_btn_dangkythongtin"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
         android:backgroundTint="#00BCD4"
-        android:paddingLeft="10dp"
-        android:text="Đăng Ký"
-        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:text="Đăng Ký"
+        android:paddingLeft="10dp"/>
 
 </LinearLayout>

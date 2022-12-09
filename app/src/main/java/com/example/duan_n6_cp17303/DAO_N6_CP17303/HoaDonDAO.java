@@ -108,12 +108,19 @@ public class HoaDonDAO {
         }
     }
 
-    public int getSLDH(String ngaybatdau, String ngayketthuc) {
+    public int getSLDH(String ngaybatdau, String ngayketthuc,String user) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID = b.IDSANPHAM where a.NGAYMUA BETWEEN '" + ngaybatdau + "' AND '" + ngayketthuc + "'";
+                String sqlQuery = "select  COUNT(b.SOLUONG) as 'doanhthut1'\n" +
+                        "FROM HOADON a \n" +
+                        "inner join CHITIETHOADON b\n" +
+                        "on a.ID  = b.IDHOADON\n" +
+                        "inner join SANPHAM c on b.IDSANPHAM = c.ID\n" +
+                        "inner join CUAHANG d on c.IDCUAHANG = D.ID\n" +
+                        "where\n" +
+                        "a.NGAYMUA  BETWEEN  '"+ngaybatdau+"' AND '"+ngayketthuc+"' AND d.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -135,12 +142,19 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public int getDTTK(String ngaybatdau, String ngayketthuc) {
+    public int getDTTK(String ngaybatdau, String ngayketthuc,String user) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'tongdoanhthu' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDSANPHAM where a.NGAYMUA  BETWEEN  '" + ngaybatdau + "' AND '" + ngayketthuc + "'";
+                String sqlQuery = "select  SUM(b.TONGTIEN*b.SOLUONG) as 'tongdoanhthu'\n" +
+                        "FROM HOADON a \n" +
+                        "inner join CHITIETHOADON b\n" +
+                        "on a.ID  = b.IDHOADON\n" +
+                        "inner join SANPHAM c on b.IDSANPHAM = c.ID\n" +
+                        "inner join CUAHANG d on c.IDCUAHANG = D.ID\n" +
+                        "where\n" +
+                        "a.NGAYMUA  BETWEEN  '"+ngaybatdau+"' AND '"+ngayketthuc+"' AND d.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -162,12 +176,16 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public long getDT() {
+    public long getDT(String user) {
         long soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select SUM(b.SOLUONG*b.TONGTIEN) as 'doanhthu' FROM HOADON a  inner join CHITIETHOADON b on a.ID  = b.IDHOADON where a.TRANGTHAI like N'Đã Giao'";
+                String sqlQuery = "select SUM(b.SOLUONG*b.TONGTIEN) as 'doanhthu' \n" +
+                        "FROM HOADON a  \n" +
+                        "inner join CHITIETHOADON b on a.ID  = b.IDHOADON\n" +
+                        "inner join SANPHAM c on b.IDSANPHAM = c.ID \n" +
+                        "inner join CUAHANG d on c.IDCUAHANG = d.ID where a.TRANGTHAI like N'Chưa Giao' and d.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -189,12 +207,16 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public int getSLDH() {
+    public int getSLDHMenu(String user) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select COUNT(b.SOLUONG) as 'soluongdonhang' FROM HOADON a inner join CHITIETHOADON b on a.ID  = b.IDHOADON";
+                String sqlQuery = "select COUNT(b.SOLUONG*b.TONGTIEN) as 'soluongdonhang' \n" +
+                        "FROM HOADON a  \n" +
+                        "inner join CHITIETHOADON b on a.ID  = b.IDHOADON\n" +
+                        "inner join SANPHAM c on b.IDSANPHAM = c.ID \n" +
+                        "inner join CUAHANG d on c.IDCUAHANG = d.ID where  d.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -216,18 +238,21 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public List<QLKHDTO> getDonHang() {
+    public List<QLKHDTO> getDonHang(String user) {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
             if (this.objConn != null) {
 
                 String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
-                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n " +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
                         "inner join KHACHHANG\n" +
-                        "on HOADON.IDKHACHHANG = KHACHHANG.ID";
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID\n"+
+                        "inner join CUAHANG \n" +
+                        "on SANPHAM.IDCUAHANG = CUAHANG.ID\n" +
+                        "where CUAHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -259,18 +284,23 @@ public class HoaDonDAO {
         return listCat;
     }
 
-    public List<QLKHDTO> getDonHangDG() {
+    public List<QLKHDTO> getDonHangDG(String user) {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
             if (this.objConn != null) {
 
                 String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
-                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "from CHITIETHOADON\n" +
+                        "inner join SANPHAM\n" +
+                        "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
                         "inner join KHACHHANG\n" +
-                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Đã giao'";
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID\n" +
+                        "inner join CUAHANG \n" +
+                        "on SANPHAM.IDCUAHANG = CUAHANG.ID\n" +
+                        "where HOADON.TRANGTHAI like N'Đã giao' and CUAHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -302,18 +332,23 @@ public class HoaDonDAO {
         return listCat;
     }
 
-    public List<QLKHDTO> getDonHangCG() {
+    public List<QLKHDTO> getDonHangCG(String user) {
         List<QLKHDTO> listCat = new ArrayList<QLKHDTO>();
 
         try {
             if (this.objConn != null) {
 
                 String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
-                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "from CHITIETHOADON\n" +
+                        "inner join SANPHAM\n" +
+                        "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
                         "inner join KHACHHANG\n" +
-                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Chưa Giao'";
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID\n" +
+                        "inner join CUAHANG \n" +
+                        "on SANPHAM.IDCUAHANG = CUAHANG.ID\n" +
+                        "where HOADON.TRANGTHAI like N'Chưa Giao' and CUAHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -345,17 +380,22 @@ public class HoaDonDAO {
         return listCat;
     }
 
-    public int getSLDHcg() {
+    public int getSLDHcg(String user) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
                 String sqlQuery = "select COUNT(HOADON.ID) as 'soluongchuagiao' \n" +
-                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "from CHITIETHOADON \n" +
+                        "inner join SANPHAM\n" +
+                        "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
                         "inner join KHACHHANG\n" +
-                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Chưa Giao'";
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID \n" +
+                        "inner join CUAHANG\n" +
+                        "on SANPHAM.IDCUAHANG = CUAHANG.ID\n" +
+                        "where HOADON.TRANGTHAI like N'Chưa Giao' and CUAHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -377,17 +417,22 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public int getSLDHdg() {
+    public int getSLDHdg(String user) {
         int soluong = 0;
         try {
             if (this.objConn != null) {
 
                 String sqlQuery = "select COUNT(HOADON.ID) as 'soluongdagiao' \n" +
-                        "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
+                        "from CHITIETHOADON \n" +
+                        "inner join SANPHAM\n" +
+                        "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
                         "inner join KHACHHANG\n" +
-                        "on HOADON.IDKHACHHANG = KHACHHANG.ID where HOADON.TRANGTHAI like N'Đã giao'";
+                        "on HOADON.IDKHACHHANG = KHACHHANG.ID \n" +
+                        "inner join CUAHANG\n" +
+                        "on SANPHAM.IDCUAHANG = CUAHANG.ID\n" +
+                        "where HOADON.TRANGTHAI like N'Đã Giao' and CUAHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 

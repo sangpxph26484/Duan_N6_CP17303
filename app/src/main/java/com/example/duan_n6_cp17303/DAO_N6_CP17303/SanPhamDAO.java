@@ -65,7 +65,7 @@ public class SanPhamDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO SANPHAM(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM,THONGTIN) VALUES (N'" + sanPhamDTO.getTensanpham()+"','"+sanPhamDTO.getGiatien() +"','"+sanPhamDTO.getSoluong()+"','"+sanPhamDTO.getAnhsanpham()+"',N'"+ sanPhamDTO.getThongtin() +"')";
+                String insertSQL = "INSERT INTO SANPHAM(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM,THONGTIN,IDCUAHANG) VALUES (N'" + sanPhamDTO.getTensanpham()+"','"+sanPhamDTO.getGiatien() +"','"+sanPhamDTO.getSoluong()+"','"+sanPhamDTO.getAnhsanpham()+"',N'"+ sanPhamDTO.getThongtin() +"','"+sanPhamDTO.getIdcuahang()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -131,5 +131,40 @@ public class SanPhamDAO {
             return  false;
         }
     }
+    public List<SanPhamDTO> getProByAdmin(String admin){
+        List<SanPhamDTO> listCat = new ArrayList<SanPhamDTO>();
 
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select *from SANPHAM inner join CUAHANG on SANPHAM.IDCUAHANG = CUAHANG.ID Where CUAHANG.USERNAME like '"+admin+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    SanPhamDTO sanPhamDTO = new SanPhamDTO();
+                    sanPhamDTO.setIdsanpham(resultSet.getInt("ID"));
+                    sanPhamDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    sanPhamDTO.setGiatien(resultSet.getFloat("GIATIEN"));
+                    sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
+                    sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+                    sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
+                    sanPhamDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+
+                    listCat.add(sanPhamDTO);
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  listCat;
+    }
 }

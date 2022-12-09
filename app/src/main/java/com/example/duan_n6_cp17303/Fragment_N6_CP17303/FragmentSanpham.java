@@ -1,7 +1,10 @@
 package com.example.duan_n6_cp17303.Fragment_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.duan_n6_cp17303.Adapter_N6_CP17303.SanPhamAdapter;
+import com.example.duan_n6_cp17303.DAO_N6_CP17303.CuaHangDAO;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.SanPhamDAO;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 import com.example.duan_n6_cp17303.R;
@@ -147,9 +151,11 @@ public class FragmentSanpham extends Fragment {
     }
 
     public void loaddata() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
 
         list = sanPhamDAO.getAll();
-        adapter = new SanPhamAdapter(sanPhamDAO.getAll(), getContext());
+        adapter = new SanPhamAdapter(sanPhamDAO.getProByAdmin(user), getContext());
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -168,6 +174,9 @@ public class FragmentSanpham extends Fragment {
         Button them = dialog.findViewById(R.id.themsp_btn_dangky);
         Button huy = dialog.findViewById(R.id.themsp_btn_huy);
 
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
+        CuaHangDAO cuaHangDAO = new CuaHangDAO();
         them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,13 +184,14 @@ public class FragmentSanpham extends Fragment {
                     String tsp = tensp.getText().toString();
                     String tt = thongtin.getText().toString();
 
-
+                    int idcuahang = cuaHangDAO.getIDshop(user);
                     SanPhamDTO sanPhamDTO = new SanPhamDTO();
                     sanPhamDTO.setTensanpham(String.valueOf(tsp));
                     sanPhamDTO.setGiatien(Float.parseFloat(giatien.getText().toString()));
                     sanPhamDTO.setSoluong(Integer.parseInt(soluong.getText().toString()));
                     sanPhamDTO.setAnhsanpham(img.getText().toString());
                     sanPhamDTO.setThongtin(tt);
+                    sanPhamDTO.setIdcuahang(idcuahang);
 
 
                     sanPhamDAO.insertRow(sanPhamDTO);
