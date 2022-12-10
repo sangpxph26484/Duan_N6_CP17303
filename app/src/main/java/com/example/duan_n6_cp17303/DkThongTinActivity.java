@@ -33,7 +33,7 @@ public class DkThongTinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CuaHangDTO cuaHangDTO = new CuaHangDTO();
                 SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Mypref", MODE_PRIVATE);
-                String user = sharedPreferences.getString("key_TK1","");
+                String user = sharedPreferences.getString("key_TKdk","");
 
 
                 String tch = ed_tch.getText().toString();
