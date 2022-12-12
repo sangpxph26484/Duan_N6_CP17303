@@ -21,5 +21,4 @@ public class Manhinhchao extends AppCompatActivity {
             }
         },3000);
     }
-
 }

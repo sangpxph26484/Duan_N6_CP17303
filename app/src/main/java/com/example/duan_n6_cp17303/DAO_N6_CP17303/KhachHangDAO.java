@@ -108,5 +108,33 @@ public class KhachHangDAO {
             e.printStackTrace();
         }
     }
+    public int getidKh(String user) {
 
+        int id = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "SELECT ID FROM KHACHHANG where USERNAME like '" + user + "'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+
+                    id = resultSet.getInt("ID");
+
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return id;
+    }
 }

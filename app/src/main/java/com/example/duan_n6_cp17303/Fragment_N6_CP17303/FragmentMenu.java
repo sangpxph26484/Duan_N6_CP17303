@@ -48,7 +48,7 @@ public class FragmentMenu extends Fragment {
         tv_xemchitiet = view.findViewById(R.id.trangchu_tv_xemchitiet);
         tv_doanhthu = view.findViewById(R.id.trangchu_tv_doanhthu);
         tv_soluongdonhang = view.findViewById(R.id.trangchu_tv_donhangmoi);
-        img_info = view.findViewById(R.id.trangchu_img_info);
+        img_info = view.findViewById(R.id.trangchu_img_quanlybl);
         tv_soluongdagiao = view.findViewById(R.id.trangchu_tv_dagiao);
         tv_soluongchuagiao = view.findViewById(R.id.trangchu_tv_chuagiao);
         img_dangxuat = view.findViewById(R.id.img_dangxuat);

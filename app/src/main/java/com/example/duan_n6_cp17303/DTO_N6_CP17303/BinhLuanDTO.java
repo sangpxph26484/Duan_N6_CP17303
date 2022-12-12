@@ -5,7 +5,15 @@ public class BinhLuanDTO {
     String binhluan;
     int idsanpham;
     int idkhachhang;
+    String tenkhachhang;
 
+    public String getTenkhachhang() {
+        return tenkhachhang;
+    }
+
+    public void setTenkhachhang(String tenkhachhang) {
+        this.tenkhachhang = tenkhachhang;
+    }
 
     public int getIdbinhluan() {
         return idbinhluan;
