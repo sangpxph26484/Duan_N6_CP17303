@@ -12,7 +12,7 @@
     <item android:title="Sản Phẩm" android:id="@+id/nav_sanPham"
         android:icon="@drawable/ic_danhsach"
         />
-    <item android:title="Liên hệ,ĐG" android:id="@+id/nav_them"
+    <item android:title="QLBL" android:id="@+id/nav_them"
         android:icon="@drawable/ic_lienhe"
         />
 

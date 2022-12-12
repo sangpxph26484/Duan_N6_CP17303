@@ -23,6 +23,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".QLBLActivyty"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PhieuGiamGiaActivity"
             android:exported="false">
             <meta-data

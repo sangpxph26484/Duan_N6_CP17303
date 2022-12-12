@@ -1,6 +1,10 @@
 package com.example.duan_n6_cp17303.Adapter_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
+import com.example.duan_n6_cp17303.QLBLActivyty;
 import com.example.duan_n6_cp17303.R;
 
 import java.text.DecimalFormat;
@@ -65,6 +70,11 @@ public class SanPhamAdapter extends BaseAdapter {
         tv_thongtin.setText("Thông Tin: " + sanPhamDTO.getThongtin());
         tv_soluong.setText("Số Lượng: " + sanPhamDTO.getSoluong() + "");
 
+
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("Mypref",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("key_SP1",sanPhamDTO.getIdsanpham());
+        editor.commit();
         Glide.with(view.getContext()).load(Uri.parse(sanPhamDTO.getAnhsanpham())).into(img_sp);
 
         return view;

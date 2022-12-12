@@ -268,7 +268,7 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/trangchu_img_info"
+                android:id="@+id/trangchu_img_quanlybl"
                 android:layout_width="91dp"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_hovaten"
@@ -276,7 +276,7 @@
             <TextView
                 android:layout_width="91dp"
                 android:layout_height="wrap_content"
-                android:text="Info Customer"
+                android:text="Quản Lý Bình Luận"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:gravity="center"

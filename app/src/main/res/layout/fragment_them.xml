@@ -1,53 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout
-        android:id="@+id/actionbar"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:orientation="horizontal"
-        android:background="@color/colorActionbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Liên Hệ Và Đánh Giá"
-            android:layout_weight="1"
-            android:layout_marginRight="15dp"
-            android:textStyle="bold"
-            android:textSize="26sp"
-            android:textColor="@color/black"
-            android:padding="8dp"
-            android:gravity="center"/>
-    </LinearLayout>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutThem"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/actionbar"
-        android:background="@color/colorbackgounditem"
-        app:tabTextColor="@color/black"
-        app:tabMode="fixed">
+        android:text="Quản Lý Bình Luận "
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="@color/black"
+        android:padding="8dp"
+        android:gravity="center"
+        android:background="@color/colorActionbar"
+        />
+    <ListView
+        android:id="@+id/qldh_lv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:dividerHeight="14dp"
+        />
 
-    </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerThem"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayoutThem" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

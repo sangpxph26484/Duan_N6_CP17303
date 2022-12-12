@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.TaiKhoanDAO;
+import com.example.duan_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 
 public class DangNhapActivity extends AppCompatActivity {
     EditText ed_user, ed_pass;
@@ -32,6 +33,7 @@ public class DangNhapActivity extends AppCompatActivity {
         tv_quenmk = findViewById(R.id.dangnhap_tv_quenmatkhau);
         tv_chuadangky = findViewById(R.id.dangnhap_tv_chuadangky);
 
+        TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
         TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
         String a;
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +43,7 @@ public class DangNhapActivity extends AppCompatActivity {
                 String mk = ed_pass.getText().toString();
 
 
-                if (tk.equalsIgnoreCase("") || mk.equalsIgnoreCase("")) {
+                if (tk.equals("") || mk.equals("")) {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
                 } else if (taiKhoanDAO.checkLogin(tk, mk) == 1) {
                     remember(tk, mk, cbo_luumk.isChecked());
@@ -57,7 +59,6 @@ public class DangNhapActivity extends AppCompatActivity {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thất bại", Toast.LENGTH_LONG).show();
                 }
             }
-
 
         });
 
