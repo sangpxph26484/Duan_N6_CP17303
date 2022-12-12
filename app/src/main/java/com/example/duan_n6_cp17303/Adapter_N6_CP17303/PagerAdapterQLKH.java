@@ -38,4 +38,3 @@ public class PagerAdapterQLKH extends FragmentStateAdapter {
         return soluongPage;
     }
 }
-// sangssss
