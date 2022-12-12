@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.example.duan_n6_cp17303.DAO_N6_CP17303.HoaDonDAO;
 import com.example.duan_n6_cp17303.R;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 
@@ -72,9 +73,10 @@ public class FragmentTkDh extends Fragment {
 
                 int soluong = hoaDonDAO.getSLDH(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString(),user);
 
-                int doanhthu = hoaDonDAO.getDTTK(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString(),user);
+                double doanhthu = hoaDonDAO.getDTTK(tv_dateStart.getText().toString(), tv_dateEnd.getText().toString(),user);
+                DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
 
-                tv_tongdoanhthu.setText(doanhthu + "đ");
+                tv_tongdoanhthu.setText(decimalFormat.format(doanhthu) + "đ");
                 tv_sldonhang.setText(soluong + "");
             }
         });

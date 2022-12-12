@@ -113,7 +113,7 @@ public class HoaDonDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select  COUNT(b.SOLUONG) as 'doanhthut1'\n" +
+                String sqlQuery = "select  COUNT(b.SOLUONG) as 'soluongdonhang'\n" +
                         "FROM HOADON a \n" +
                         "inner join CHITIETHOADON b\n" +
                         "on a.ID  = b.IDHOADON\n" +
@@ -142,8 +142,8 @@ public class HoaDonDAO {
         return soluong;
     }
 
-    public int getDTTK(String ngaybatdau, String ngayketthuc,String user) {
-        int soluong = 0;
+    public double getDTTK(String ngaybatdau, String ngayketthuc,String user) {
+        double soluong = 0;
         try {
             if (this.objConn != null) {
 
