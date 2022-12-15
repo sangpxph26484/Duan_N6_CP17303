@@ -15,20 +15,6 @@
 
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="8dp">
-
-            <ImageView
-                android:id="@+id/item_hoadon_img"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img_pro" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -64,15 +50,35 @@
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_item_hoadon_tongtien"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Tổng tiền:"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Tổng tiền:"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_item_hoadon_tongtien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gia"
+                    android:textColor="#D60606"
+                    android:textSize="14dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="đ"
+                    android:textColor="#D60606"
+                    android:textSize="14dp"
+                    />
+            </LinearLayout>
             <TextView
                 android:id="@+id/tv_item_hoadon_ngaymua"
                 android:layout_width="wrap_content"
@@ -82,15 +88,28 @@
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 android:textStyle="bold" />
-            <TextView
-                android:id="@+id/tv_item_hoadon_trangthai"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Trạng thái:"
-                android:textColor="@color/white"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Trạng thái:"
+                    android:textColor="@color/white"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_item_hoadon_trangthai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ssssssss"
+                    android:textColor="#114B65"
+                    android:textSize="15dp"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 

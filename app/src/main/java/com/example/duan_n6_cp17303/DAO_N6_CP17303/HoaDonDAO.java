@@ -244,7 +244,7 @@ public class HoaDonDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM\n" +
                         "from CHITIETHOADON inner join SANPHAM on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n " +
                         "inner join HOADON\n" +
                         "on HOADON.ID = CHITIETHOADON.IDHOADON\n" +
@@ -268,7 +268,7 @@ public class HoaDonDAO {
                     qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
                     qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
                     qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+//                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
 
 
                     listCat.add(qlkhdto);
@@ -290,7 +290,7 @@ public class HoaDonDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM\n" +
                         "from CHITIETHOADON\n" +
                         "inner join SANPHAM\n" +
                         "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
@@ -316,7 +316,7 @@ public class HoaDonDAO {
                     qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
                     qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
                     qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+//                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
 
 
                     listCat.add(qlkhdto);
@@ -338,7 +338,7 @@ public class HoaDonDAO {
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM,HOADON.ANHSANPHAM\n" +
+                String sqlQuery = "select HOADON.ID,HOADON.NGAYMUA,HOADON.TRANGTHAI,CHITIETHOADON.TONGTIEN,CHITIETHOADON.SOLUONG,KHACHHANG.TENKHACHHANG,SANPHAM.TENSANPHAM\n" +
                         "from CHITIETHOADON\n" +
                         "inner join SANPHAM\n" +
                         "on CHITIETHOADON.IDSANPHAM = SANPHAM.ID\n" +
@@ -364,7 +364,7 @@ public class HoaDonDAO {
                     qlkhdto.setSoluong(resultSet.getInt("SOLUONG"));
                     qlkhdto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
                     qlkhdto.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
+//                    qlkhdto.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
 
 
                     listCat.add(qlkhdto);

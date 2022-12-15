@@ -50,7 +50,7 @@ public class QLKHAdapter extends BaseAdapter {
         } else {
             view = convertView;
         }
-        ImageView imgItemsp = view.findViewById(R.id.item_hoadon_img);
+//        ImageView imgItemsp = view.findViewById(R.id.item_hoadon_img);
         TextView tvItemtenkh = view.findViewById(R.id.tv_item_hoadon_tenkh);
         TextView tvngaymua = view.findViewById(R.id.tv_item_hoadon_ngaymua);
         TextView tvItemsoluong = view.findViewById(R.id.tv_item_hoadon_sl);
@@ -60,11 +60,11 @@ public class QLKHAdapter extends BaseAdapter {
 
         QLKHDTO qlkhdto = list.get(position);
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        Glide.with(view.getContext()).load(Uri.parse(qlkhdto.getAnhsanpham())).into(imgItemsp);
+//        Glide.with(view.getContext()).load(Uri.parse(qlkhdto.getAnhsanpham())).into(imgItemsp);
         tvItemtenkh.setText("Họ Tên: "+ qlkhdto.getTenkhachhang());
         tvItemsoluong.setText("Số Lượng:"+qlkhdto.getSoluong()+"");
-        tvItemtongtien.setText("Tổng Tiền: "+decimalFormat.format(qlkhdto.getTongtien())  + "đ");
-        tvItemtrangthai.setText("Trạng Thái: "+qlkhdto.getTrangthai());
+        tvItemtongtien.setText(decimalFormat.format(qlkhdto.getTongtien()));
+        tvItemtrangthai.setText(qlkhdto.getTrangthai());
         tvngaymua.setText("Ngày Mua: "+qlkhdto.getNgaymua());
 
 

@@ -20,13 +20,15 @@
 
         <TextView
             android:id="@+id/binhluan_tv_ten"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tên Ảnh Của Các Anh đẹp trai"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tên Ảnh "
             android:textSize="30dp"
-            android:layout_marginLeft="10dp"
+
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/black"
+            android:background="#78BCF3"
             />
 
     </LinearLayout>
@@ -35,9 +37,11 @@
         android:layout_height="wrap_content"
         android:text="Bình Luận"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:gravity="center"
         android:layout_margin="10dp"
+        android:background="#D39E9E"
+        android:textColor="@color/white"
         />
     <ListView
         android:id="@+id/binhluan_lv_list"

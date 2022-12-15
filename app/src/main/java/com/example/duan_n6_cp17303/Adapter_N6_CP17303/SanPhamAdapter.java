@@ -65,10 +65,10 @@ public class SanPhamAdapter extends BaseAdapter {
         SanPhamDTO sanPhamDTO = list.get(position);
 
 
-        tv_tensp.setText("Tên Sản Phẩm: " + sanPhamDTO.getTensanpham() + "");
-        tv_gia.setText("Giá: " + decimalFormat.format(sanPhamDTO.getGiatien()));
+        tv_tensp.setText(sanPhamDTO.getTensanpham() + "");
+        tv_gia.setText(decimalFormat.format(sanPhamDTO.getGiatien()));
         tv_thongtin.setText("Thông Tin: " + sanPhamDTO.getThongtin());
-        tv_soluong.setText("Số Lượng: " + sanPhamDTO.getSoluong() + "");
+        tv_soluong.setText(sanPhamDTO.getSoluong() + "");
 
 
         SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("Mypref",MODE_PRIVATE);
