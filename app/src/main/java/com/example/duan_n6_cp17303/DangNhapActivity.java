@@ -42,7 +42,6 @@ public class DangNhapActivity extends AppCompatActivity {
                 String tk = ed_user.getText().toString();
                 String mk = ed_pass.getText().toString();
 
-
                 if (tk.equals("") || mk.equals("")) {
                     Toast.makeText(DangNhapActivity.this, "Không Được Để Trống", Toast.LENGTH_SHORT).show();
                 } else if (taiKhoanDAO.checkLogin(tk, mk) == 1) {
@@ -54,6 +53,7 @@ public class DangNhapActivity extends AppCompatActivity {
                     editor.commit();
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     startActivity(intent);
+
 
                 } else {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thất bại", Toast.LENGTH_LONG).show();
@@ -69,10 +69,20 @@ public class DangNhapActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        tv_quenmk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(DangNhapActivity.this,qmkhau_activity.class);
+                startActivity(intent);
+            }
+        });
         SharedPreferences sharedPreferences = getSharedPreferences("Login", MODE_PRIVATE);
         String u = sharedPreferences.getString("name", "");
         String p = sharedPreferences.getString("pass", "");
         Boolean check_login = sharedPreferences.getBoolean("remember", false);
+
+
 
         ed_user.setText(u);
         ed_pass.setText(p);

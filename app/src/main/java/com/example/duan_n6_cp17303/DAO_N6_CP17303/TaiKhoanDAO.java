@@ -162,7 +162,7 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
 
-                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
+                    taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));// truyền tên cột dữ liệu
 
 
                     listCat.add(taiKhoanDTO);
@@ -181,5 +181,55 @@ public class TaiKhoanDAO {
 
         return 1;
     }
+    public int checkPass(String pass) {
+        List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
 
+        try {
+            if (this.objConn != null) {
+
+                String sql = "SELECT * FROM TAIKHOAN WHERE PASS = '" + pass + "'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sql); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+
+                    taiKhoanDTO.setPassword(resultSet.getString("PASS"));// truyền tên cột dữ liệu
+
+
+                    listCat.add(taiKhoanDTO);
+
+                }
+            }
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        if (listCat.size() == 0) {
+            return -1;
+        }
+
+        return 1;
+    }
+    public boolean updateMatKhau(String matkhau, String user) {
+        try {
+            if (this.objConn != null) {
+                String sqlUpdate = "UPDATE TAIKHOAN SET PASS = '" + matkhau + "' where username = '" + user + "'";
+
+                PreparedStatement statement = this.objConn.prepareStatement(sqlUpdate);
+                statement.execute();
+                Log.e("zzzz", "updateMatKhau: thanhcong");
+            }
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzz", "updateSP : co loi sua du lieu");
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
