@@ -90,15 +90,15 @@ public class FragmentMenu extends Fragment {
             }
         });
 
-        ImageView imageView = view.findViewById(R.id.trangchu_img_voucher);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PhieuGiamGiaActivity.class);
-                startActivity(intent);
-            }
-        });
+//        ImageView imageView = view.findViewById(R.id.trangchu_img_voucher);
+//
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), PhieuGiamGiaActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         img_dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

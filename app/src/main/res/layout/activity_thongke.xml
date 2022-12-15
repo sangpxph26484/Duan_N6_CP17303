@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actionbar"
-        android:background="#71CFFA"
+        android:background="#D6D096"
         app:tabTextColor="@color/black"
         app:tabMode="fixed">
 
