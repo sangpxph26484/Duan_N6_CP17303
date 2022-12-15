@@ -5,13 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="@drawable/bgrd1">
+    android:background="@drawable/bgrd2">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo_truong" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:hint="Tên Đăng Nhập"
-        android:textColorHint="@color/white"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +33,9 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:startIconDrawable="@drawable/ic_user"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white">
+        app:boxStrokeColor="@color/black"
+        android:textColorHint="#C9FFFFFF"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dangnhap_ed_taikhoan"
@@ -64,12 +60,13 @@
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_mkk"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:boxStrokeColor="@color/white"
-        app:hintTextColor="@color/white">
+        app:boxStrokeColor="@color/black"
+        android:textColorHint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dangnhap_ed_matkhau"
             android:textColor="@color/black"
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -86,8 +83,7 @@
         android:layout_marginTop="20dp"
         android:text="Lưu Mật Khẩu"
         android:textColor="@color/white"
-        android:textSize="16dp"
-        android:textStyle="italic"
+        android:textSize="20dp"
         android:buttonTint="@color/white"
         />
 
@@ -115,7 +111,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:text="@string/quen_mk"
-            android:textColor="#38FFEC"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:padding="8dp"/>
         <TextView
@@ -131,7 +127,7 @@
             android:id="@+id/dangnhap_tv_chuadangky"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#38FFEC"
+            android:textColor="@color/white"
             android:text="@string/dang_ky"
             android:textSize="15dp"
             android:textStyle="bold"

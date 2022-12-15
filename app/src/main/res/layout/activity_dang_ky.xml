@@ -18,12 +18,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
             android:padding="8dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/logo_truong"
-            android:layout_weight="1"
-            android:paddingRight="20dp"/>
+
     </LinearLayout>
 
     <TextView
@@ -51,7 +46,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:startIconDrawable="@drawable/ic_hovaten"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/black"
+        android:textColorHint="#C9FFFFFF"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +75,8 @@
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_mkk"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/black"
+        android:textColorHint="@color/white"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -87,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:drawablePadding="10dp"
             android:textSize="20sp"
             android:textStyle="bold"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -105,11 +103,12 @@
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
         app:passwordToggleEnabled="true"
         app:startIconDrawable="@drawable/ic_mkk"
-        app:boxStrokeColor="@color/white">
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dangky_ed_nhaplaimatkhau"
-
+            android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -124,7 +123,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:backgroundTint="#00BCD4"
+        android:backgroundTint="#639298"
         android:paddingLeft="10dp"
         android:text="Đăng Ký"
         android:textAllCaps="false"

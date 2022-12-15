@@ -36,7 +36,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#9EFFFFFF"
+        android:textColorHint="@color/white"
         app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilpassword1"
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#9EFFFFFF"
+        android:textColorHint="@color/white"
         app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilpassword"
         android:layout_width="match_parent"
